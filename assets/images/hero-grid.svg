@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 400" width="600" height="400">
+  <defs>
+    <linearGradient id="bg-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FFF5F0"/>
+      <stop offset="100%" stop-color="#FFFFFF"/>
+    </linearGradient>
+  </defs>
+  <rect width="600" height="400" fill="url(#bg-grad)"/>
+  <!-- 4 个产品 -->
+  <g transform="translate(50,50)">
+    <circle cx="100" cy="100" r="80" fill="#E8E8EC" stroke="#A0A0A8" stroke-width="2"/>
+    <circle cx="100" cy="100" r="70" fill="#FF6B35"/>
+    <text x="100" y="125" font-size="70" text-anchor="middle">📌</text>
+  </g>
+  <g transform="translate(300,50)">
+    <circle cx="100" cy="100" r="80" fill="#E8E8EC" stroke="#A0A0A8" stroke-width="2"/>
+    <circle cx="100" cy="100" r="70" fill="#764BA2"/>
+    <text x="100" y="125" font-size="70" text-anchor="middle">🎨</text>
+  </g>
+  <g transform="translate(50,200)">
+    <circle cx="100" cy="100" r="80" fill="#E8E8EC" stroke="#A0A0A8" stroke-width="2"/>
+    <circle cx="100" cy="100" r="70" fill="#F093FB"/>
+    <text x="100" y="125" font-size="70" text-anchor="middle">✨</text>
+  </g>
+  <g transform="translate(300,200)">
+    <circle cx="100" cy="100" r="80" fill="#E8E8EC" stroke="#A0A0A8" stroke-width="2"/>
+    <circle cx="100" cy="100" r="70" fill="#4FACFE"/>
+    <text x="100" y="125" font-size="70" text-anchor="middle">🌟</text>
+  </g>
+</svg>

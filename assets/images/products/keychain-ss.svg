@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400" width="400" height="400">
+  <defs>
+    <radialGradient id="bg" cx="50%" cy="40%" r="80%">
+      <stop offset="0%" stop-color="#FFFFFF"/>
+      <stop offset="100%" stop-color="#F0F0F5"/>
+    </radialGradient>
+  </defs>
+  
+  <defs>
+    <linearGradient id="ss" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#B0B0B8"/>
+      <stop offset="50%" stop-color="#F0F0F5"/>
+      <stop offset="100%" stop-color="#888"/>
+    </linearGradient>
+  </defs>
+  <circle cx="200" cy="80" r="35" fill="none" stroke="url(#ss)" stroke-width="10"/>
+  <rect x="130" y="130" width="140" height="180" rx="20" fill="url(#ss)" stroke="#666" stroke-width="2"/>
+  <text x="200" y="220" font-size="50" text-anchor="middle" fill="#222" font-family="Arial Black" font-weight="900">PIN</text>
+  <text x="200" y="270" font-size="20" text-anchor="middle" fill="#444" font-weight="bold">FORGE</text>
+  <circle cx="200" cy="115" r="6" fill="#666"/>
+
+</svg>

@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400" width="400" height="400">
+  <defs>
+    <radialGradient id="bg" cx="50%" cy="40%" r="80%">
+      <stop offset="0%" stop-color="#FFFFFF"/>
+      <stop offset="100%" stop-color="#F0F0F5"/>
+    </radialGradient>
+  </defs>
+  
+  <circle cx="200" cy="200" r="135" fill="#FFFFFF" stroke="#D0D0D8" stroke-width="3"/>
+  <circle cx="200" cy="200" r="120" fill="#FF6B35"/>
+  <text x="200" y="245" font-size="140" text-anchor="middle" fill="#FFFFFF" font-family="Arial Black" font-weight="900">P</text>
+  <circle cx="155" cy="155" r="22" fill="#FFFFFF" opacity="0.4"/>
+  <!-- 蝴蝶扣 -->
+  <line x1="280" y1="200" x2="340" y2="200" stroke="#888" stroke-width="3"/>
+  <circle cx="345" cy="200" r="8" fill="#666"/>
+
+</svg>

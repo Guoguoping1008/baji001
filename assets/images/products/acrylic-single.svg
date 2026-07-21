@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400" width="400" height="400">
+  <defs>
+    <radialGradient id="bg" cx="50%" cy="40%" r="80%">
+      <stop offset="0%" stop-color="#FFFFFF"/>
+      <stop offset="100%" stop-color="#F0F0F5"/>
+    </radialGradient>
+  </defs>
+  
+  <rect x="100" y="80" width="200" height="280" rx="10" fill="#FBC2EB" stroke="#E8B0DB" stroke-width="3"/>
+  <rect x="115" y="95" width="170" height="250" rx="5" fill="#A6C1EE" opacity="0.7"/>
+  <text x="200" y="240" font-size="120" text-anchor="middle">🌸</text>
+  <!-- 高光 -->
+  <rect x="115" y="95" width="40" height="250" rx="5" fill="#FFFFFF" opacity="0.3"/>
+  <!-- 底座 -->
+  <ellipse cx="200" cy="370" rx="120" ry="8" fill="#000000" opacity="0.15"/>
+  <rect x="120" y="355" width="160" height="15" fill="#D0D0D8" rx="3"/>
+
+</svg>

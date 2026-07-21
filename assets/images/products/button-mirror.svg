@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400" width="400" height="400">
+  <defs>
+    <radialGradient id="bg" cx="50%" cy="40%" r="80%">
+      <stop offset="0%" stop-color="#FFFFFF"/>
+      <stop offset="100%" stop-color="#F0F0F5"/>
+    </radialGradient>
+  </defs>
+  
+  <circle cx="200" cy="200" r="135" fill="#FFFFFF" stroke="#D0D0D8" stroke-width="3"/>
+  <circle cx="200" cy="200" r="120" fill="#F59E0B"/>
+  <circle cx="200" cy="180" r="60" fill="#E5F4FF" stroke="#B8DCEE" stroke-width="2"/>
+  <circle cx="180" cy="165" r="15" fill="#FFFFFF" opacity="0.8"/>
+  <text x="200" y="290" font-size="22" text-anchor="middle" fill="#FFFFFF" font-weight="bold">MIRROR</text>
+
+</svg>

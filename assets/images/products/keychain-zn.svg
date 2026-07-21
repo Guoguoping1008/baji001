@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400" width="400" height="400">
+  <defs>
+    <radialGradient id="bg" cx="50%" cy="40%" r="80%">
+      <stop offset="0%" stop-color="#FFFFFF"/>
+      <stop offset="100%" stop-color="#F0F0F5"/>
+    </radialGradient>
+  </defs>
+  
+  <defs>
+    <linearGradient id="metalZn" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#E8E8EC"/>
+      <stop offset="50%" stop-color="#FFFFFF"/>
+      <stop offset="100%" stop-color="#A0A0A8"/>
+    </linearGradient>
+  </defs>
+  <!-- 钥匙圈 -->
+  <circle cx="200" cy="80" r="35" fill="none" stroke="url(#metalZn)" stroke-width="12"/>
+  <!-- 主体 -->
+  <ellipse cx="200" cy="230" rx="90" ry="110" fill="url(#metalZn)" stroke="#888" stroke-width="2"/>
+  <ellipse cx="200" cy="230" rx="75" ry="95" fill="#FFA500"/>
+  <text x="200" y="265" font-size="80" text-anchor="middle">🔑</text>
+  <!-- 连接环 -->
+  <circle cx="200" cy="115" r="8" fill="#888"/>
+
+</svg>

@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400" width="400" height="400">
+  <defs>
+    <radialGradient id="bg" cx="50%" cy="40%" r="80%">
+      <stop offset="0%" stop-color="#FFFFFF"/>
+      <stop offset="100%" stop-color="#F0F0F5"/>
+    </radialGradient>
+  </defs>
+  
+  <circle cx="200" cy="200" r="130" fill="#E8E8EC" stroke="#A0A0A8" stroke-width="3"/>
+  <defs>
+    <linearGradient id="glitter" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FFB6E1"/>
+      <stop offset="33%" stop-color="#A8E6FF"/>
+      <stop offset="66%" stop-color="#FFE4A8"/>
+      <stop offset="100%" stop-color="#D4A8FF"/>
+    </linearGradient>
+  </defs>
+  <circle cx="200" cy="200" r="115" fill="url(#glitter)"/>
+  <circle cx="243" cy="108" r="2.0750322656680007" fill="#FFFFFF" opacity="0.8"/><circle cx="150" cy="142" r="2.669632214446468" fill="#FFFFFF" opacity="0.8"/><circle cx="268" cy="106" r="4.030098462268734" fill="#FFFFFF" opacity="0.8"/><circle cx="308" cy="219" r="2.2608164978882486" fill="#FFFFFF" opacity="0.8"/><circle cx="188" cy="88" r="2.089391658314211" fill="#FFFFFF" opacity="0.8"/><circle cx="135" cy="139" r="3.5160658643100873" fill="#FFFFFF" opacity="0.8"/><circle cx="86" cy="223" r="2.5965129520599453" fill="#FFFFFF" opacity="0.8"/><circle cx="246" cy="259" r="3.6348244418096503" fill="#FFFFFF" opacity="0.8"/><circle cx="136" cy="194" r="3.767797051627726" fill="#FFFFFF" opacity="0.8"/><circle cx="287" cy="302" r="2.019496279034183" fill="#FFFFFF" opacity="0.8"/><circle cx="286" cy="120" r="4.094418184964681" fill="#FFFFFF" opacity="0.8"/><circle cx="167" cy="151" r="2.4664384994353448" fill="#FFFFFF" opacity="0.8"/><circle cx="275" cy="166" r="2.306630829559546" fill="#FFFFFF" opacity="0.8"/><circle cx="177" cy="104" r="3.0769381414538852" fill="#FFFFFF" opacity="0.8"/><circle cx="168" cy="234" r="2.7935626016660393" fill="#FFFFFF" opacity="0.8"/><circle cx="91" cy="266" r="3.378274639015528" fill="#FFFFFF" opacity="0.8"/><circle cx="111" cy="316" r="3.1356031316250603" fill="#FFFFFF" opacity="0.8"/><circle cx="221" cy="155" r="4.488213992758984" fill="#FFFFFF" opacity="0.8"/><circle cx="238" cy="306" r="4.585120700932332" fill="#FFFFFF" opacity="0.8"/><circle cx="227" cy="129" r="4.11371550864477" fill="#FFFFFF" opacity="0.8"/><circle cx="91" cy="249" r="2.683694826954641" fill="#FFFFFF" opacity="0.8"/><circle cx="154" cy="100" r="4.565953163045441" fill="#FFFFFF" opacity="0.8"/><circle cx="301" cy="105" r="3.1403786751174985" fill="#FFFFFF" opacity="0.8"/><circle cx="196" cy="242" r="4.502331279922251" fill="#FFFFFF" opacity="0.8"/><circle cx="121" cy="174" r="3.0658121006825647" fill="#FFFFFF" opacity="0.8"/><circle cx="251" cy="148" r="4.105460940375654" fill="#FFFFFF" opacity="0.8"/><circle cx="254" cy="245" r="2.214207528735645" fill="#FFFFFF" opacity="0.8"/><circle cx="242" cy="123" r="3.602419631089124" fill="#FFFFFF" opacity="0.8"/><circle cx="142" cy="121" r="3.386780635553347" fill="#FFFFFF" opacity="0.8"/><circle cx="149" cy="316" r="3.9199992795622784" fill="#FFFFFF" opacity="0.8"/><circle cx="222" cy="136" r="4.053842752969624" fill="#FFFFFF" opacity="0.8"/><circle cx="295" cy="276" r="4.327999734638734" fill="#FFFFFF" opacity="0.8"/><circle cx="138" cy="290" r="2.0963007317121134" fill="#FFFFFF" opacity="0.8"/><circle cx="160" cy="182" r="2.8032226279271084" fill="#FFFFFF" opacity="0.8"/><circle cx="134" cy="313" r="4.828729143005163" fill="#FFFFFF" opacity="0.8"/><circle cx="304" cy="263" r="2.944033642395434" fill="#FFFFFF" opacity="0.8"/><circle cx="247" cy="207" r="3.186895703181993" fill="#FFFFFF" opacity="0.8"/><circle cx="314" cy="244" r="3.376555557762196" fill="#FFFFFF" opacity="0.8"/><circle cx="147" cy="115" r="2.7398825230819503" fill="#FFFFFF" opacity="0.8"/><circle cx="223" cy="217" r="2.788224825568806" fill="#FFFFFF" opacity="0.8"/>
+  <text x="200" y="230" font-size="90" text-anchor="middle" fill="#FFFFFF" font-family="Arial Black">✨</text>
+  <line x1="200" y1="330" x2="200" y2="380" stroke="#888" stroke-width="3"/>
+
+</svg>

@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400" width="400" height="400">
+  <defs>
+    <radialGradient id="bg" cx="50%" cy="40%" r="80%">
+      <stop offset="0%" stop-color="#FFFFFF"/>
+      <stop offset="100%" stop-color="#F0F0F5"/>
+    </radialGradient>
+  </defs>
+  
+  <rect x="60" y="80" width="280" height="240" fill="#FFFFFF" stroke="#D0D0D8" stroke-width="3" rx="10"/>
+  <circle cx="200" cy="180" r="60" fill="#FF6B35" stroke="#C0451A" stroke-width="3"/>
+  <text x="200" y="195" font-size="40" text-anchor="middle" fill="#FFFFFF" font-weight="bold">★</text>
+  <text x="200" y="100" font-size="16" text-anchor="middle" fill="#1A1A2E" font-weight="bold">PINFORGE</text>
+  <text x="200" y="280" font-size="11" text-anchor="middle" fill="#4A5568">Premium Enamel Pin · Made in China</text>
+  <text x="200" y="298" font-size="11" text-anchor="middle" fill="#4A5568">www.pinforge.com</text>
+
+</svg>

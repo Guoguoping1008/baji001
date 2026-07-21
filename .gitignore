@@ -2,6 +2,7 @@
 .DS_Store
 Thumbs.db
 desktop.ini
+$RECYCLE.BIN/
 
 # Editor
 .vscode/
@@ -37,3 +38,10 @@ temp/
 *.tmp
 *.bak
 *.orig
+
+# Unrelated project artifacts (from previous WordPress work in this folder)
+fix_home_h1.py
+update_wp.py
+wp-update-results.json
+wp-backup/
+home-after.html

@@ -9,10 +9,10 @@ A modern, fast, fully responsive B2B website for a custom pin badge & enamel pin
 - GitHub Pages: `https://your-username.github.io/baji001/`
 - Cloudflare Pages: `https://pinforge.pages.dev/`
 
-## ✨ Features
+## ✨ Features (v1.1.0)
 
 ### Customer-facing
-- 🎨 **6 product categories** with detailed specifications
+- 🎨 **6 product categories** with detailed specifications (16 SVG product illustrations)
 - 📝 **B2B inquiry form** with 14 fields including file upload, NDA option, sample request
 - 💬 **Multi-channel contact** (Email, WhatsApp, WeChat, Phone)
 - 🌐 **Social media integration** (Facebook, Instagram, TikTok, Xiaohongshu 海外小红书)
@@ -20,13 +20,19 @@ A modern, fast, fully responsive B2B website for a custom pin badge & enamel pin
 - 📱 **100% mobile responsive** with smooth animations
 - 🔍 **Product filter tabs** for easy catalog browsing
 - ✨ **Scroll-reveal animations** and interactive elements
+- 🎨 **Custom brand palette** — coral red (#E63946) + deep navy (#1D3557)
+- 🔤 **Google Fonts** — Inter + Plus Jakarta Sans
 
-### Technical
+### Technical & Marketing
 - ⚡ **Pure static HTML/CSS/JS** — zero dependencies, lightning fast
 - 🚀 **Auto-deploy** via GitHub Actions to GitHub Pages
 - ☁️ **Cloudflare Pages Functions** for serverless form handling
 - 🔒 **Security headers** (CSP, HSTS, X-Frame-Options)
-- 📊 **SEO optimized** (meta tags, OG tags, semantic HTML)
+- 📊 **JSON-LD structured data** — Organization, LocalBusiness, Product (with SKU + AggregateOffer), FAQPage, BreadcrumbList, WebSite
+- 🔗 **Canonical URLs** on every page
+- 📈 **GA4 + Meta Pixel + TikTok Pixel + Microsoft Clarity + 百度统计** — full marketing analytics stack
+- 🎯 **Conversion tracking** — Lead/SubmitForm events fire on all pixels when forms are submitted
+- 📊 **Event tracking** — product filters, social clicks, CTA clicks
 - ♿ **Accessible** (ARIA labels, semantic markup, keyboard navigation)
 - 🌐 **i18n ready** — easy to add multi-language versions
 
@@ -40,9 +46,12 @@ baji001/
 ├── about.html              # About us + certifications
 ├── contact.html            # Contact info + quick form
 ├── assets/
-│   ├── css/style.css       # Main stylesheet
-│   ├── js/main.js          # Main JavaScript
-│   └── images/             # (Add product images here)
+│   ├── css/style.css       # Main stylesheet (brand colors, fonts, animations)
+│   ├── js/main.js          # Main JavaScript (forms, filters, tracking)
+│   └── images/
+│       ├── logo.svg        # Brand logo
+│       ├── favicon.svg     # Browser favicon
+│       └── products/       # 16 SVG product illustrations
 ├── functions/
 │   └── api/
 │       ├── inquiry.js      # Handles B2B inquiry form (POST /api/inquiry)

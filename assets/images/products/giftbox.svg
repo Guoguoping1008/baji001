@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400" width="400" height="400">
+  <defs>
+    <radialGradient id="bg" cx="50%" cy="40%" r="80%">
+      <stop offset="0%" stop-color="#FFFFFF"/>
+      <stop offset="100%" stop-color="#F0F0F5"/>
+    </radialGradient>
+  </defs>
+  
+  <defs>
+    <linearGradient id="box" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FF8E53"/>
+      <stop offset="100%" stop-color="#FF6B35"/>
+    </linearGradient>
+  </defs>
+  <rect x="80" y="140" width="240" height="200" fill="url(#box)" rx="5"/>
+  <rect x="80" y="140" width="240" height="40" fill="#C0451A" rx="5"/>
+  <rect x="190" y="140" width="20" height="200" fill="#C0451A"/>
+  <rect x="190" y="135" width="20" height="15" fill="#C0451A"/>
+  <!-- 蝴蝶结 -->
+  <path d="M 180 130 Q 200 100 220 130 Q 200 145 180 130 Z" fill="#FFD700"/>
+  <path d="M 220 130 Q 240 100 260 130 Q 240 145 220 130 Z" fill="#FFD700"/>
+  <text x="200" y="250" font-size="24" text-anchor="middle" fill="#FFFFFF" font-weight="bold">PREMIUM</text>
+
+</svg>
