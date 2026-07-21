@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+  <defs>
+    <linearGradient id="pinGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FF6B35"/>
+      <stop offset="100%" stop-color="#FFA500"/>
+    </linearGradient>
+    <linearGradient id="metalGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#E0E0E0"/>
+      <stop offset="50%" stop-color="#FFFFFF"/>
+      <stop offset="100%" stop-color="#A0A0A0"/>
+    </linearGradient>
+  </defs>
+  <!-- Pin body -->
+  <circle cx="50" cy="45" r="35" fill="url(#pinGrad)" stroke="url(#metalGrad)" stroke-width="3"/>
+  <!-- Inner ring -->
+  <circle cx="50" cy="45" r="28" fill="none" stroke="#FFFFFF" stroke-width="1.5" opacity="0.4"/>
+  <!-- Highlight -->
+  <ellipse cx="38" cy="33" rx="12" ry="6" fill="#FFFFFF" opacity="0.35"/>
+  <!-- Center emoji -->
+  <text x="50" y="58" font-size="32" text-anchor="middle" font-family="Arial">📌</text>
+  <!-- Pin needle -->
+  <line x1="50" y1="80" x2="50" y2="92" stroke="#888888" stroke-width="2.5" stroke-linecap="round"/>
+  <!-- Needle tip -->
+  <circle cx="50" cy="92" r="2.5" fill="#444444"/>
+</svg>

@@ -1,0 +1,15 @@
+# Cloudflare Pages redirects
+# https://developers.cloudflare.com/pages/configuration/redirects/
+
+# WWW to apex domain (uncomment after custom domain setup)
+# https://www.pinforge.com/* https://pinforge.com/:splat 301!
+
+# Friendly redirects
+/quote /customize.html 301
+/inquiry /customize.html 301
+/catalog /products.html 301
+/contact-us /contact.html 301
+
+# API routes (handled by Pages Functions)
+/api/inquiry /functions/api/inquiry.js 200
+/api/contact /functions/api/contact.js 200

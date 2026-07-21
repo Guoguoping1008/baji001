@@ -1,0 +1,9 @@
+User-agent: *
+Allow: /
+Disallow: /api/
+
+# Sitemap
+Sitemap: https://pinforge.com/sitemap.xml
+
+# Crawl delay (optional, conservative)
+Crawl-delay: 1
