@@ -172,7 +172,7 @@ Edit CSS variables in `assets/css/style.css`:
    ```
 
 ### Update contact info
-Search for `pinforge.example`, `+86-xxx-xxxx-xxxx`, `Yiwu, Zhejiang` across HTML files and replace with real values.
+Search for `pinforge.example`, `+86 13925748590`, `Liaobu, Dongguan` across HTML files and replace with real values.
 
 ## 🌐 Social Media Setup
 
@@ -211,7 +211,7 @@ Free templates: [getterms.io](https://getterms.io)
 ## 📞 Contact Integration
 
 ### WhatsApp Click-to-Chat
-Replace `+86-xxx-xxxx-xxxx` in HTML with your WhatsApp number (with country code, no `+`):
+Replace `+86 13925748590` in HTML with your WhatsApp number (with country code, no `+`):
 ```html
 <a href="https://wa.me/8613800000000">Chat on WhatsApp</a>
 ```

@@ -45,7 +45,7 @@ export async function onRequestPost(context) {
         console.error('Inquiry form error:', error);
         return new Response(JSON.stringify({ 
             success: false, 
-            message: 'Failed to process request. Please email us directly at sales@pinforge.example' 
+            message: 'Failed to process request. Please email us directly at Devllin@outlook.com' 
         }), {
             status: 500,
             headers: { 'Content-Type': 'application/json' }
@@ -92,7 +92,7 @@ async function sendEmail(env, data) {
         },
         body: JSON.stringify({
             from: 'noreply@pinforge.example',
-            to: 'sales@pinforge.example',
+            to: 'Devllin@outlook.com',
             subject: `New Quote: ${data.company} - ${data.product_type}`,
             html: `
                 <h2>New Quote Request</h2>

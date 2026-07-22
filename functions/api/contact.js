@@ -36,7 +36,7 @@ export async function onRequestPost(context) {
     } catch (error) {
         return new Response(JSON.stringify({ 
             success: false, 
-            message: 'Failed to send. Please email sales@pinforge.example directly.' 
+            message: 'Failed to send. Please email Devllin@outlook.com directly.' 
         }), {
             status: 500,
             headers: { 'Content-Type': 'application/json' }

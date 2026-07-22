@@ -107,7 +107,7 @@
                 inquiryForm.reset();
             } catch (error) {
                 console.error('Form error:', error);
-                showNotification('❌ Something went wrong. Please try WhatsApp or email us directly at sales@pinforge.example.', 'error');
+                showNotification('❌ Something went wrong. Please try WhatsApp or email us directly at Devllin@outlook.com.', 'error');
             } finally {
                 submitBtn.disabled = false;
                 submitBtn.textContent = originalText;
@@ -149,7 +149,7 @@
                 showNotification('✅ Message sent! We\'ll get back to you within 24 hours.', 'success');
                 contactForm.reset();
             } catch (error) {
-                showNotification('❌ Failed to send. Please email sales@pinforge.example directly.', 'error');
+                showNotification('❌ Failed to send. Please email Devllin@outlook.com directly.', 'error');
             } finally {
                 submitBtn.disabled = false;
                 submitBtn.textContent = originalText;

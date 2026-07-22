@@ -39,9 +39,21 @@ temp/
 *.bak
 *.orig
 
-# Unrelated project artifacts (from previous WordPress work in this folder)
+# Python cache
+__pycache__/
+*.pyc
+*.pyo
+
+# Unrelated project artifacts (from previous WordPress / Elementor work in this folder)
 fix_home_h1.py
 update_wp.py
 wp-update-results.json
 wp-backup/
 home-after.html
+home-final.html
+home-three-step.html
+home-edit-after.json
+apply_three_step.py
+fix_elementor_again.py
+three-step-backup/
+three-step-update-results.json

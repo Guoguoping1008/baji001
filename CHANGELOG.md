@@ -1,6 +1,27 @@
 # Changelog
 All notable changes to PinForge website will be documented in this file.
 
+## [1.1.1] - 2025-01
+### Changed — Real Contact Information
+- 📍 **Factory address** updated: Room 302, No. 179 Hongli Road, Liaobu Town, Dongguan City, Guangdong Province, China 523400
+- 📞 **4 WhatsApp sales lines** (click-to-chat via wa.me):
+  - Main Sales: +86 13925748590
+  - Sales: +86 18002816058
+  - Sales: +86 15209604190
+  - Sales: +86 18038289516
+- 📧 **Email**: Devllin@outlook.com (unified for Sales/Support/Partnerships)
+- 🗺️ **Google Maps embed** added on contact page (Liaobu, Dongguan coordinates)
+- 💬 **Quick CTA grid** on contact page: WhatsApp / Email / Call buttons
+- 🔗 **All WhatsApp & email references** linkified (wa.me + mailto)
+
+### Fixed
+- JSON-LD structured data: all 19 schemas re-validated with new address
+- City field updated: Yiwu → Dongguan in LocalBusiness schema
+- Region: Zhejiang → Guangdong
+- Postal: 322000 → 523400
+- About page narrative: "small commodities capital" → "manufacturing capital"
+- Products page sourcing network: Yiwu → Dongguan
+
 ## [1.1.0] - 2025-01
 ### Added — Visual & Performance Upgrade
 - 🎨 **Custom brand colors** — coral red (#E63946) + deep navy (#1D3557), sophisticated B2B palette
