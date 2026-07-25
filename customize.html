@@ -557,6 +557,10 @@
                             <label for="product_type">Product Type *</label>
                             <select id="product_type" name="product_type" required>
                                 <option value="">-- Choose product type --</option>
+                                <option value="m13-badge">📌 M13 Smart Display Badge</option>
+                                <option value="m13-badge-ai">🤖 M13 AI Version (translation/meeting)</option>
+                                <option value="phonecase">📱 Custom iPhone Case</option>
+                                <option value="phonecase-pack">📱 iPhone Case (Bulk Pack)</option>
                                 <option value="hard-enamel">Hard Enamel Pin</option>
                                 <option value="soft-enamel">Soft Enamel Pin</option>
                                 <option value="button-badge">Button Badge</option>
@@ -564,7 +568,8 @@
                                 <option value="keychain">Metal Keychain</option>
                                 <option value="lanyard">Lanyard / Wristband</option>
                                 <option value="packaging">Custom Packaging</option>
-                                <option value="other">Other / Multiple Products</option>
+                                <option value="multiple">📦 Multiple Products (mixed order)</option>
+                                <option value="other">Other / Custom Request</option>
                             </select>
                         </div>
 
@@ -766,6 +771,45 @@
         </div>
     </footer>
 
+    <script>
+
+    // ---- Pre-fill product from URL param ----
+    (function() {
+        const params = new URLSearchParams(window.location.search);
+        const product = params.get('product');
+        const variant = params.get('variant');
+        if (product) {
+            const select = document.getElementById('product_type');
+            if (select) {
+                const map = {
+                    'm13': 'm13-badge',
+                    'm13-ai': 'm13-badge-ai',
+                    'phonecase': 'phonecase',
+                    'phonecase-pack': 'phonecase-pack',
+                };
+                let value = map[product] || product;
+                if (variant === 'ai' && product === 'm13') value = 'm13-badge-ai';
+                if (Array.from(select.options).some(o => o.value === value)) {
+                    select.value = value;
+                    select.dispatchEvent(new Event('change'));
+                }
+            }
+        }
+    })();
+
+    // ---- Track product type selection ----
+    const productSelect = document.getElementById('product_type');
+    if (productSelect) {
+        productSelect.addEventListener('change', () => {
+            if (typeof gtag !== 'undefined') {
+                gtag('event', 'select_product_type', {
+                    product_type: productSelect.value
+                });
+            }
+        });
+    }
+
+    </script>
     <script src="assets/js/main.js"></script>
 </body>
 </html>

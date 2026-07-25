@@ -1,6 +1,54 @@
 # Changelog
 All notable changes to PinForge website will be documented in this file.
 
+## [1.2.0] - 2025-01
+### Added — New Product Lines (M13 Smart Badge + iPhone Cases)
+- 🆕 **M13 Smart Display Badge** — full product detail page (`product-m13.html`)
+  - 1.7" 360x360 round LCD, Bluetooth 6.0, 400mAh battery, 7-color support lights
+  - Standard + AI versions (real-time translation, meeting minutes)
+  - Complete specs from factory datasheet (7609T motherboard, AC7076A CPU)
+  - 37 app languages supported
+  - 6 use cases (concerts, conferences, trade shows, cycling, gaming, weddings)
+  - 3-tier wholesale pricing ($24.80 / $21.50 / $18.90 per pc)
+- 🆕 **Custom iPhone Cases** — full product detail page (`product-phonecase.html`)
+  - Compatible with iPhone 6 through iPhone 16 Pro Max
+  - 5 material options (PC, TPU, clear, leather, biodegradable)
+  - 6 printing techniques (UV, sublimation, embossing, silkscreen, hot stamping, IMD)
+  - Product demo video embedded (6.5MB MP4)
+  - 2 design collections with detail views (12 photos)
+  - 3-tier wholesale pricing ($2.80 / $2.20 / $1.85 per pc)
+  - Amazon FBA drop-ship ready
+
+### Added — Cross-Page Integration
+- 🎨 **Product gallery CSS** (`product-detail.css`) — sticky gallery, thumb switcher, price tiers
+- 🔧 **Product gallery JS** (`product-gallery.js`) — image switcher + keyboard navigation
+- 🚀 **"New Arrivals" section** on homepage — dark navy hero card with M13 + iPhone Case
+- ⭐ **"Featured New Products" section** on products.html — top-of-page showcase cards
+- 📝 **Inquiry form pre-fill** via URL param:
+  - `customize.html?product=m13` → auto-selects "M13 Smart Display Badge"
+  - `customize.html?product=m13-ai` → auto-selects "M13 AI Version"
+  - `customize.html?product=phonecase` → auto-selects "Custom iPhone Case"
+  - `customize.html?product=phonecase-pack` → auto-selects "iPhone Case (Bulk Pack)"
+
+### Added — Images & Media
+- 📸 32 product images for M13 (hero + 4 gallery + 11 detail + 16 infographic)
+- 📸 27 product images for iPhone Cases (hero + 4 main + 10 white-bg + 6+6 detail-sku)
+- 🎬 1 product demo video (phonecase-demo.mp4, 6.5MB)
+
+### Changed
+- Homepage hero badge now includes "🚀 NEW: Smart Display Badges & iPhone Cases"
+- Homepage subtitle mentions smart hardware offerings
+- Footer Products section: M13 + iPhone Cases now appear at top
+- Navigation CTA: "Get a Quote" → `/customize.html?product=m13` on product pages
+- Products page header: "Smart hardware, custom accessories & traditional pins"
+- Products page adds "⭐ Featured" filter tab
+
+### SEO
+- 2 new Product JSON-LD schemas (M13 + iPhone Case) with full specs, pricing, ratings
+- M13: price range $18.90-$24.80, rating 4.9/327, MOQ 50
+- iPhone Case: price range $1.85-$3.80, rating 4.8/245, MOQ 50
+- New OG tags for product pages
+
 ## [1.1.1] - 2025-01
 ### Changed — Real Contact Information
 - 📍 **Factory address** updated: Room 302, No. 179 Hongli Road, Liaobu Town, Dongguan City, Guangdong Province, China 523400

@@ -23,10 +23,15 @@ build/
 .cache/
 node_modules/
 
-# Env
+# Env / secrets
 .env
 .env.local
 .env.*.local
+*.appkey
+*.appkey2
+*.credentials
+*.key
+*.pem
 
 # Test
 coverage/
@@ -38,17 +43,19 @@ temp/
 *.tmp
 *.bak
 *.orig
-
-# Python cache
+*.rar
 __pycache__/
 *.pyc
 *.pyo
 
-# Unrelated project artifacts (from previous WordPress / Elementor work in this folder)
+# Unrelated project artifacts (from previous WordPress / Elementor / other work)
 fix_home_h1.py
 update_wp.py
 wp-update-results.json
 wp-backup/
+wp-sitemap.xml
+wp-sitemap-pages.xml
+wp-sitemap-posts.xml
 home-after.html
 home-final.html
 home-three-step.html
@@ -57,3 +64,15 @@ apply_three_step.py
 fix_elementor_again.py
 three-step-backup/
 three-step-update-results.json
+blog-posts.csv
+fix_step1.py
+toboseo/
+toboseo_step1.py
+write_key.ps1
+write_key2.ps1
+
+# Source material directories (raw inputs, processed copies live in assets/images/)
+"M13 吧唧 资料/"
+"M13 吧唧 资料.rar"
+"苹果智能手机壳详情图片/"
+"苹果智能手机壳详情图片.rar"
