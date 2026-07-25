@@ -1,17 +1,29 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400" width="400" height="400">
   <defs>
-    <radialGradient id="bg" cx="50%" cy="40%" r="80%">
+    <radialGradient id="bgB" cx="50%" cy="40%" r="80%">
       <stop offset="0%" stop-color="#FFFFFF"/>
       <stop offset="100%" stop-color="#F0F0F5"/>
     </radialGradient>
+    <radialGradient id="pinFill" cx="40%" cy="35%" r="65%">
+      <stop offset="0%" stop-color="#FF8B5A"/>
+      <stop offset="100%" stop-color="#E63946"/>
+    </radialGradient>
+    <radialGradient id="metalB" cx="40%" cy="35%" r="65%">
+      <stop offset="0%" stop-color="#F5F5F5"/>
+      <stop offset="100%" stop-color="#C0C0C8"/>
+    </radialGradient>
   </defs>
-  
-  <circle cx="200" cy="200" r="135" fill="#FFFFFF" stroke="#D0D0D8" stroke-width="3"/>
-  <circle cx="200" cy="200" r="120" fill="#FF6B35"/>
-  <text x="200" y="245" font-size="140" text-anchor="middle" fill="#FFFFFF" font-family="Arial Black" font-weight="900">P</text>
-  <circle cx="155" cy="155" r="22" fill="#FFFFFF" opacity="0.4"/>
-  <!-- 蝴蝶扣 -->
-  <line x1="280" y1="200" x2="340" y2="200" stroke="#888" stroke-width="3"/>
-  <circle cx="345" cy="200" r="8" fill="#666"/>
-
+  <rect width="400" height="400" fill="url(#bgB)"/>
+  <!-- Outer metal rim -->
+  <circle cx="200" cy="200" r="140" fill="url(#metalB)" stroke="#A0A0A8" stroke-width="3"/>
+  <!-- Inner colored face -->
+  <circle cx="200" cy="200" r="125" fill="url(#pinFill)" stroke="#A02835" stroke-width="2"/>
+  <!-- Letter P -->
+  <text x="200" y="265" font-size="170" text-anchor="middle" fill="#FFFFFF" font-family="Arial Black" font-weight="900">P</text>
+  <!-- Highlight -->
+  <ellipse cx="155" cy="155" rx="50" ry="30" fill="#FFFFFF" opacity="0.4"/>
+  <circle cx="155" cy="155" r="10" fill="#FFFFFF" opacity="0.7"/>
+  <!-- Butterfly clasp -->
+  <line x1="280" y1="200" x2="345" y2="200" stroke="#888" stroke-width="4"/>
+  <circle cx="348" cy="200" r="9" fill="#666"/>
 </svg>

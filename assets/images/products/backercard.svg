@@ -1,16 +1,30 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400" width="400" height="400">
   <defs>
-    <radialGradient id="bg" cx="50%" cy="40%" r="80%">
+    <radialGradient id="bgBC" cx="50%" cy="40%" r="80%">
       <stop offset="0%" stop-color="#FFFFFF"/>
       <stop offset="100%" stop-color="#F0F0F5"/>
     </radialGradient>
+    <linearGradient id="cardShade" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#FFFFFF"/>
+      <stop offset="100%" stop-color="#E5E5EC"/>
+    </linearGradient>
   </defs>
-  
-  <rect x="60" y="80" width="280" height="240" fill="#FFFFFF" stroke="#D0D0D8" stroke-width="3" rx="10"/>
-  <circle cx="200" cy="180" r="60" fill="#FF6B35" stroke="#C0451A" stroke-width="3"/>
-  <text x="200" y="195" font-size="40" text-anchor="middle" fill="#FFFFFF" font-weight="bold">★</text>
-  <text x="200" y="100" font-size="16" text-anchor="middle" fill="#1A1A2E" font-weight="bold">PINFORGE</text>
-  <text x="200" y="280" font-size="11" text-anchor="middle" fill="#4A5568">Premium Enamel Pin · Made in China</text>
-  <text x="200" y="298" font-size="11" text-anchor="middle" fill="#4A5568">www.pinforge.com</text>
-
+  <rect width="400" height="400" fill="url(#bgBC)"/>
+  <!-- Card -->
+  <rect x="50" y="60" width="300" height="280" fill="url(#cardShade)" stroke="#C0C0C8" stroke-width="3" rx="12"/>
+  <!-- Top text -->
+  <text x="200" y="90" font-size="20" text-anchor="middle" fill="#1A1A2E" font-weight="bold" font-family="Arial">PINFORGE</text>
+  <line x1="80" y1="100" x2="320" y2="100" stroke="#D0D0D8" stroke-width="1.5"/>
+  <!-- Pin hole -->
+  <circle cx="200" cy="170" r="55" fill="#FF6B35" stroke="#A02835" stroke-width="3"/>
+  <text x="200" y="190" font-size="50" text-anchor="middle" fill="#FFFFFF" font-weight="bold" font-family="Arial">★</text>
+  <!-- Star burst lines -->
+  <line x1="200" y1="110" x2="200" y2="115" stroke="#888" stroke-width="2"/>
+  <line x1="265" y1="170" x2="270" y2="170" stroke="#888" stroke-width="2"/>
+  <line x1="200" y1="230" x2="200" y2="225" stroke="#888" stroke-width="2"/>
+  <line x1="135" y1="170" x2="130" y2="170" stroke="#888" stroke-width="2"/>
+  <!-- Footer text -->
+  <text x="200" y="290" font-size="13" text-anchor="middle" fill="#4A5568" font-family="Arial">Premium Enamel Pin</text>
+  <text x="200" y="310" font-size="11" text-anchor="middle" fill="#4A5568" font-family="Arial">www.pinforge.com</text>
+  <text x="200" y="328" font-size="10" text-anchor="middle" fill="#888" font-family="Arial">Made in China · MOQ 50</text>
 </svg>

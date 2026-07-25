@@ -9,7 +9,9 @@
 /inquiry /customize.html 301
 /catalog /products.html 301
 /contact-us /contact.html 301
+/cart /cart.html 301
 
 # API routes (handled by Pages Functions)
 /api/inquiry /functions/api/inquiry.js 200
 /api/contact /functions/api/contact.js 200
+/admin /admin.html 301

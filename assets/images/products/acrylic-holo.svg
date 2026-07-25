@@ -1,12 +1,9 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400" width="400" height="400">
   <defs>
-    <radialGradient id="bg" cx="50%" cy="40%" r="80%">
+    <radialGradient id="bgHolo" cx="50%" cy="40%" r="80%">
       <stop offset="0%" stop-color="#FFFFFF"/>
       <stop offset="100%" stop-color="#F0F0F5"/>
     </radialGradient>
-  </defs>
-  
-  <defs>
     <linearGradient id="holo" x1="0%" y1="0%" x2="100%" y2="100%">
       <stop offset="0%" stop-color="#FF6B9D"/>
       <stop offset="25%" stop-color="#C56CF0"/>
@@ -14,11 +11,17 @@
       <stop offset="75%" stop-color="#48CFAD"/>
       <stop offset="100%" stop-color="#FFCE54"/>
     </linearGradient>
+    <linearGradient id="holoShine" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#FFFFFF" stop-opacity="0.5"/>
+      <stop offset="40%" stop-color="#FFFFFF" stop-opacity="0"/>
+      <stop offset="100%" stop-color="#000000" stop-opacity="0.15"/>
+    </linearGradient>
   </defs>
-  <rect x="100" y="80" width="200" height="280" rx="10" fill="url(#holo)" opacity="0.4"/>
-  <rect x="100" y="80" width="200" height="280" rx="10" fill="none" stroke="url(#holo)" stroke-width="4"/>
-  <text x="200" y="240" font-size="120" text-anchor="middle">🪄</text>
-  <ellipse cx="200" cy="370" rx="120" ry="8" fill="#000000" opacity="0.15"/>
-  <rect x="120" y="355" width="160" height="15" fill="#D0D0D8" rx="3"/>
-
+  <rect width="400" height="400" fill="url(#bgHolo)"/>
+  <rect x="95" y="70" width="210" height="280" rx="14" fill="url(#holo)" opacity="0.6"/>
+  <rect x="95" y="70" width="210" height="280" rx="14" fill="url(#holoShine)"/>
+  <rect x="95" y="70" width="210" height="280" rx="14" fill="none" stroke="url(#holo)" stroke-width="4"/>
+  <text x="200" y="240" font-size="140" text-anchor="middle">🪄</text>
+  <ellipse cx="200" cy="365" rx="125" ry="10" fill="#000000" opacity="0.15"/>
+  <rect x="115" y="350" width="170" height="16" fill="#C0C0D0" rx="3"/>
 </svg>

@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inquiry Admin — PinForge</title>
+    <meta name="robots" content="noindex, nofollow">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/admin.css">
+    <link rel="icon" type="image/svg+xml" href="assets/images/favicon.svg">
+</head>
+<body class="admin-body">
+    <header class="admin-header">
+        <div class="container">
+            <h1>🔒 PinForge Inquiry Admin</h1>
+            <div class="admin-user">
+                <span id="adminLastUpdated" class="text-muted">Not loaded</span>
+                <button id="refreshBtn" class="btn btn-outline btn-sm">↻ Refresh</button>
+            </div>
+        </div>
+    </header>
+
+    <main class="container admin-main">
+        <!-- Login Screen -->
+        <div id="loginScreen" class="login-screen">
+            <div class="login-card">
+                <h2>🔐 Admin Login</h2>
+                <p>Enter your admin token to view inquiries.</p>
+                <input type="password" id="adminToken" placeholder="Admin token" class="login-input">
+                <button id="loginBtn" class="btn btn-primary btn-block">Login</button>
+                <p class="login-hint">
+                    💡 Set <code>ADMIN_TOKEN</code> in Cloudflare Pages dashboard env vars.
+                </p>
+            </div>
+        </div>
+
+        <!-- Dashboard -->
+        <div id="dashboard" class="dashboard hidden">
+            <!-- Stats -->
+            <section class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-value" id="statTotal">0</div>
+                    <div class="stat-label">Total Inquiries</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-value" id="stat24h">0</div>
+                    <div class="stat-label">Last 24 hours</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-value" id="statNew">0</div>
+                    <div class="stat-label">New (unread)</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-value" id="statWon">0</div>
+                    <div class="stat-label">Won deals</div>
+                </div>
+            </section>
+
+            <!-- Filters -->
+            <section class="filters">
+                <div class="filter-row">
+                    <input type="search" id="searchInput" placeholder="🔍 Search company, email, country..." class="filter-input">
+                    <select id="statusFilter" class="filter-input">
+                        <option value="">All Statuses</option>
+                        <option value="new">New</option>
+                        <option value="contacted">Contacted</option>
+                        <option value="quoted">Quoted</option>
+                        <option value="won">Won</option>
+                        <option value="lost">Lost</option>
+                    </select>
+                    <select id="productFilter" class="filter-input">
+                        <option value="">All Products</option>
+                    </select>
+                </div>
+            </section>
+
+            <!-- Inquiries Table -->
+            <section class="inquiries-table-wrapper">
+                <table class="inquiries-table">
+                    <thead>
+                        <tr>
+                            <th>Date</th>
+                            <th>Company</th>
+                            <th>Contact</th>
+                            <th>Country</th>
+                            <th>Product</th>
+                            <th>Qty</th>
+                            <th>Source</th>
+                            <th>Status</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody id="inquiriesBody">
+                        <tr><td colspan="9" class="loading-row">Loading...</td></tr>
+                    </tbody>
+                </table>
+            </section>
+        </div>
+
+        <!-- Detail Modal -->
+        <div id="detailModal" class="modal hidden">
+            <div class="modal-content">
+                <button class="modal-close" id="modalClose">✕</button>
+                <div id="modalBody"></div>
+            </div>
+        </div>
+    </main>
+
+    <script>
+        const API_BASE = '/api/admin';
+        let adminToken = localStorage.getItem('pinforge_admin_token') || '';
+        let allInquiries = [];
+
+        const loginScreen = document.getElementById('loginScreen');
+        const dashboard = document.getElementById('dashboard');
+        const adminTokenInput = document.getElementById('adminToken');
+        const loginBtn = document.getElementById('loginBtn');
+        const refreshBtn = document.getElementById('refreshBtn');
+        const searchInput = document.getElementById('searchInput');
+        const statusFilter = document.getElementById('statusFilter');
+        const productFilter = document.getElementById('productFilter');
+        const inquiriesBody = document.getElementById('inquiriesBody');
+        const lastUpdated = document.getElementById('adminLastUpdated');
+        const detailModal = document.getElementById('detailModal');
+        const modalBody = document.getElementById('modalBody');
+        const modalClose = document.getElementById('modalClose');
+
+        // ---- Auth ----
+        if (adminToken) {
+            adminTokenInput.value = adminToken;
+            showDashboard();
+            loadInquiries();
+        }
+
+        loginBtn.addEventListener('click', () => {
+            adminToken = adminTokenInput.value.trim();
+            if (!adminToken) {
+                alert('Please enter a token');
+                return;
+            }
+            localStorage.setItem('pinforge_admin_token', adminToken);
+            showDashboard();
+            loadInquiries();
+        });
+
+        adminTokenInput.addEventListener('keydown', (e) => {
+            if (e.key === 'Enter') loginBtn.click();
+        });
+
+        function showDashboard() {
+            loginScreen.classList.add('hidden');
+            dashboard.classList.remove('hidden');
+        }
+
+        // ---- Load ----
+        async function loadInquiries() {
+            try {
+                const res = await fetch(API_BASE + '/list', {
+                    headers: { 'X-Admin-Token': adminToken }
+                });
+                if (res.status === 401) {
+                    alert('Invalid token');
+                    localStorage.removeItem('pinforge_admin_token');
+                    location.reload();
+                    return;
+                }
+                if (!res.ok) throw new Error('HTTP ' + res.status);
+
+                const data = await res.json();
+                allInquiries = data.list || [];
+
+                // Stats
+                document.getElementById('statTotal').textContent = data.stats.total;
+                document.getElementById('stat24h').textContent = data.stats.last24h;
+                document.getElementById('statNew').textContent = (data.stats.byStatus?.new || 0);
+                document.getElementById('statWon').textContent = (data.stats.byStatus?.won || 0);
+
+                // Product filter options
+                const products = Object.keys(data.stats.byProduct || {});
+                productFilter.innerHTML = '<option value="">All Products</option>' +
+                    products.map(p => `<option value="${escapeHtml(p)}">${escapeHtml(p)} (${data.stats.byProduct[p]})</option>`).join('');
+
+                renderTable();
+                lastUpdated.textContent = 'Updated ' + new Date().toLocaleTimeString();
+            } catch (e) {
+                console.error(e);
+                inquiriesBody.innerHTML = `<tr><td colspan="9" class="error-row">❌ Error loading: ${e.message}<br><br>Make sure INQUIRIES KV namespace is bound and ADMIN_TOKEN is set.</td></tr>`;
+            }
+        }
+
+        function renderTable() {
+            const search = searchInput.value.toLowerCase();
+            const status = statusFilter.value;
+            const product = productFilter.value;
+
+            const filtered = allInquiries.filter(i => {
+                if (status && i.status !== status) return false;
+                if (product && i.product_type !== product) return false;
+                if (search) {
+                    const haystack = `${i.company} ${i.email} ${i.country} ${i.name || ''}`.toLowerCase();
+                    if (!haystack.includes(search)) return false;
+                }
+                return true;
+            });
+
+            if (filtered.length === 0) {
+                inquiriesBody.innerHTML = '<tr><td colspan="9" class="loading-row">No inquiries match.</td></tr>';
+                return;
+            }
+
+            inquiriesBody.innerHTML = filtered.map(i => {
+                const date = new Date(i.timestamp);
+                const dateStr = date.toLocaleDateString() + ' ' + date.toLocaleTimeString([], {hour:'2-digit', minute:'2-digit'});
+                return `
+                    <tr data-id="${i.id}">
+                        <td class="date-cell">${dateStr}</td>
+                        <td><strong>${escapeHtml(i.company)}</strong></td>
+                        <td>${escapeHtml(i.email)}</td>
+                        <td>${escapeHtml(i.country || 'N/A')}</td>
+                        <td><span class="product-tag">${escapeHtml(i.product_type || 'N/A')}</span></td>
+                        <td>${escapeHtml(i.quantity || 'N/A')}</td>
+                        <td class="text-muted">${escapeHtml(i.source || '')}</td>
+                        <td><span class="status-badge status-${i.status}">${i.status}</span></td>
+                        <td>
+                            <button class="btn-link view-btn" data-id="${i.id}">View</button>
+                        </td>
+                    </tr>
+                `;
+            }).join('');
+
+            inquiriesBody.querySelectorAll('.view-btn').forEach(btn => {
+                btn.addEventListener('click', () => showDetail(btn.dataset.id));
+            });
+        }
+
+        async function showDetail(id) {
+            try {
+                const res = await fetch(API_BASE + '/get?id=' + id, {
+                    headers: { 'X-Admin-Token': adminToken }
+                });
+                if (!res.ok) throw new Error('Failed');
+                const data = await res.json();
+                const i = data.inquiry;
+
+                modalBody.innerHTML = `
+                    <h2>📋 ${escapeHtml(i.company)}</h2>
+                    <p class="modal-meta">Submitted ${new Date(i.timestamp).toLocaleString()} · <span class="status-badge status-${i.status}">${i.status}</span></p>
+
+                    <div class="detail-grid">
+                        <div><strong>Contact:</strong> ${escapeHtml(i.name)}</div>
+                        <div><strong>Email:</strong> <a href="mailto:${escapeHtml(i.email)}">${escapeHtml(i.email)}</a></div>
+                        <div><strong>Phone:</strong> ${escapeHtml(i.phone || 'N/A')}</div>
+                        <div><strong>Country:</strong> ${escapeHtml(i.country)} ${i.country_ip ? '(' + i.country_ip + ')' : ''}</div>
+                        <div><strong>Product:</strong> ${escapeHtml(i.product_type)}</div>
+                        <div><strong>Quantity:</strong> ${escapeHtml(i.quantity)}</div>
+                        <div><strong>Budget:</strong> ${escapeHtml(i.budget || 'N/A')}</div>
+                        <div><strong>Deadline:</strong> ${escapeHtml(i.deadline || 'N/A')}</div>
+                        <div><strong>Size:</strong> ${escapeHtml(i.size || 'N/A')}</div>
+                        <div><strong>NDA:</strong> ${escapeHtml(i.nda)}</div>
+                        <div><strong>Sample:</strong> ${escapeHtml(i.sample)}</div>
+                        <div><strong>Source:</strong> ${escapeHtml(i.source)} ${i.utm_source ? '/ ' + i.utm_source : ''}</div>
+                    </div>
+
+                    <div class="detail-section">
+                        <h3>📝 Description</h3>
+                        <p>${escapeHtml(i.description)}</p>
+                    </div>
+
+                    <div class="detail-section">
+                        <h3>⚙️ Update Status</h3>
+                        <select id="statusUpdate" class="filter-input">
+                            <option value="new" ${i.status === 'new' ? 'selected' : ''}>🆕 New</option>
+                            <option value="contacted" ${i.status === 'contacted' ? 'selected' : ''}>📞 Contacted</option>
+                            <option value="quoted" ${i.status === 'quoted' ? 'selected' : ''}>💰 Quoted</option>
+                            <option value="won" ${i.status === 'won' ? 'selected' : ''}>✅ Won</option>
+                            <option value="lost" ${i.status === 'lost' ? 'selected' : ''}>❌ Lost</option>
+                        </select>
+                        <button id="updateStatusBtn" class="btn btn-primary">Save Status</button>
+                    </div>
+
+                    <div class="detail-section">
+                        <h3>🚀 Quick Actions</h3>
+                        <a href="https://wa.me/${(i.phone || '').replace(/\D/g, '')}?text=Hi%20${encodeURIComponent(i.name)}%2C%20regarding%20your%20inquiry%20about%20${encodeURIComponent(i.product_type)}..." target="_blank" rel="noopener" class="btn btn-outline">💬 WhatsApp</a>
+                        <a href="mailto:${escapeHtml(i.email)}?subject=Re%3A%20${encodeURIComponent(i.product_type)}%20inquiry&body=Hi%20${encodeURIComponent(i.name)}%2C%0A%0AThank%20you%20for%20your%20inquiry..." class="btn btn-outline">📧 Email</a>
+                    </div>
+
+                    <details class="raw-data">
+                        <summary>🔍 Raw data</summary>
+                        <pre>${escapeHtml(JSON.stringify(i, null, 2))}</pre>
+                    </details>
+                `;
+
+                detailModal.classList.remove('hidden');
+
+                document.getElementById('updateStatusBtn').addEventListener('click', async () => {
+                    const newStatus = document.getElementById('statusUpdate').value;
+                    const r = await fetch(API_BASE + '/update', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json',
+                            'X-Admin-Token': adminToken
+                        },
+                        body: JSON.stringify({ id: i.id, status: newStatus })
+                    });
+                    if (r.ok) {
+                        alert('✅ Status updated to ' + newStatus);
+                        detailModal.classList.add('hidden');
+                        loadInquiries();
+                    } else {
+                        alert('❌ Failed to update');
+                    }
+                });
+            } catch (e) {
+                alert('Error: ' + e.message);
+            }
+        }
+
+        modalClose.addEventListener('click', () => detailModal.classList.add('hidden'));
+        detailModal.addEventListener('click', (e) => {
+            if (e.target === detailModal) detailModal.classList.add('hidden');
+        });
+
+        refreshBtn.addEventListener('click', loadInquiries);
+        searchInput.addEventListener('input', renderTable);
+        statusFilter.addEventListener('change', renderTable);
+        productFilter.addEventListener('change', renderTable);
+
+        function escapeHtml(s) {
+            return String(s || '').replace(/[&<>"']/g, c => ({
+                '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;'
+            }[c]));
+        }
+
+        // Auto-refresh every 60s
+        setInterval(() => {
+            if (!dashboard.classList.contains('hidden')) loadInquiries();
+        }, 60000);
+    </script>
+</body>
+</html>

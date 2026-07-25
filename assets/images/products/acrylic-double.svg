@@ -1,17 +1,28 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400" width="400" height="400">
   <defs>
-    <radialGradient id="bg" cx="50%" cy="40%" r="80%">
+    <radialGradient id="bgAD" cx="50%" cy="40%" r="80%">
       <stop offset="0%" stop-color="#FFFFFF"/>
       <stop offset="100%" stop-color="#F0F0F5"/>
     </radialGradient>
+    <linearGradient id="greenFill" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#A7F3D0"/>
+      <stop offset="100%" stop-color="#6EE7B7"/>
+    </linearGradient>
+    <linearGradient id="depth" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#FFFFFF" stop-opacity="0.4"/>
+      <stop offset="50%" stop-color="#FFFFFF" stop-opacity="0"/>
+      <stop offset="100%" stop-color="#000000" stop-opacity="0.2"/>
+    </linearGradient>
   </defs>
-  
-  <rect x="90" y="80" width="220" height="280" rx="10" fill="#84FAB0" stroke="#6BD89A" stroke-width="3"/>
-  <text x="200" y="240" font-size="120" text-anchor="middle">🎭</text>
-  <!-- 侧边厚度感 -->
-  <rect x="305" y="85" width="6" height="270" fill="#000000" opacity="0.15"/>
-  <rect x="89" y="85" width="6" height="270" fill="#FFFFFF" opacity="0.3"/>
-  <ellipse cx="200" cy="370" rx="130" ry="8" fill="#000000" opacity="0.15"/>
-  <rect x="120" y="355" width="160" height="15" fill="#D0D0D8" rx="3"/>
-
+  <rect width="400" height="400" fill="url(#bgAD)"/>
+  <!-- Side edge for depth -->
+  <path d="M 295 80 L 305 85 L 305 350 L 295 355 Z" fill="#000000" opacity="0.2"/>
+  <path d="M 90 80 L 100 85 L 100 350 L 90 355 Z" fill="#FFFFFF" opacity="0.5"/>
+  <!-- Front face -->
+  <rect x="95" y="70" width="200" height="280" rx="14" fill="url(#greenFill)" stroke="#059669" stroke-width="2"/>
+  <rect x="95" y="70" width="200" height="280" rx="14" fill="url(#depth)"/>
+  <!-- Character -->
+  <text x="195" y="240" font-size="140" text-anchor="middle">🎭</text>
+  <ellipse cx="195" cy="365" rx="125" ry="10" fill="#000000" opacity="0.15"/>
+  <rect x="115" y="350" width="160" height="16" fill="#C0C0D0" rx="3"/>
 </svg>

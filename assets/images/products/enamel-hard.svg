@@ -1,19 +1,36 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400" width="400" height="400">
   <defs>
-    <radialGradient id="bg" cx="50%" cy="40%" r="80%">
+    <radialGradient id="bgH" cx="50%" cy="40%" r="80%">
       <stop offset="0%" stop-color="#FFFFFF"/>
       <stop offset="100%" stop-color="#F0F0F5"/>
     </radialGradient>
+    <linearGradient id="metalRim" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#FFE4A8"/>
+      <stop offset="50%" stop-color="#FFD700"/>
+      <stop offset="100%" stop-color="#B8860B"/>
+    </linearGradient>
+    <linearGradient id="enamelFill" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#FF8B5A"/>
+      <stop offset="100%" stop-color="#E63946"/>
+    </linearGradient>
+    <radialGradient id="shineH" cx="35%" cy="30%" r="40%">
+      <stop offset="0%" stop-color="#FFFFFF" stop-opacity="0.7"/>
+      <stop offset="100%" stop-color="#FFFFFF" stop-opacity="0"/>
+    </radialGradient>
   </defs>
-  
-  <circle cx="200" cy="200" r="130" fill="#E8E8EC" stroke="#A0A0A8" stroke-width="3"/>
-  <circle cx="200" cy="200" r="115" fill="#FF6B35" stroke="#8B5A2B" stroke-width="2"/>
-  <circle cx="200" cy="200" r="100" fill="#FFD700" stroke="none"/>
-  <text x="200" y="240" font-size="100" text-anchor="middle" fill="#FF6B35" font-family="Arial Black" font-weight="900">★</text>
-  <circle cx="155" cy="155" r="22" fill="#FFFFFF" opacity="0.5"/>
-  <circle cx="155" cy="155" r="8" fill="#FFFFFF" opacity="0.7"/>
-  <!-- 蝴蝶扣 -->
-  <line x1="200" y1="330" x2="200" y2="380" stroke="#888" stroke-width="3" stroke-linecap="round"/>
+  <rect width="400" height="400" fill="url(#bgH)"/>
+  <!-- Metal rim -->
+  <circle cx="200" cy="200" r="135" fill="url(#metalRim)" stroke="#8B6914" stroke-width="2"/>
+  <!-- Enamel fill -->
+  <circle cx="200" cy="200" r="115" fill="url(#enamelFill)"/>
+  <!-- Star -->
+  <path d="M 200 100 L 217 165 L 285 165 L 230 205 L 250 270 L 200 230 L 150 270 L 170 205 L 115 165 L 183 165 Z"
+        fill="#FFFFFF" opacity="0.95" stroke="#B8860B" stroke-width="2"/>
+  <!-- Highlights -->
+  <ellipse cx="155" cy="140" rx="35" ry="20" fill="#FFFFFF" opacity="0.5"/>
+  <circle cx="160" cy="145" r="8" fill="#FFFFFF" opacity="0.8"/>
+  <circle cx="200" cy="200" r="115" fill="url(#shineH)"/>
+  <!-- Bottom needle -->
+  <line x1="200" y1="335" x2="200" y2="385" stroke="#888" stroke-width="4" stroke-linecap="round"/>
   <ellipse cx="200" cy="385" rx="15" ry="6" fill="#666"/>
-
 </svg>

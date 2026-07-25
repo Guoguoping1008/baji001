@@ -1,22 +1,27 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400" width="400" height="400">
   <defs>
-    <radialGradient id="bg" cx="50%" cy="40%" r="80%">
+    <radialGradient id="bgSS" cx="50%" cy="40%" r="80%">
       <stop offset="0%" stop-color="#FFFFFF"/>
       <stop offset="100%" stop-color="#F0F0F5"/>
     </radialGradient>
-  </defs>
-  
-  <defs>
     <linearGradient id="ss" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#B0B0B8"/>
-      <stop offset="50%" stop-color="#F0F0F5"/>
-      <stop offset="100%" stop-color="#888"/>
+      <stop offset="0%" stop-color="#D8D8E0"/>
+      <stop offset="50%" stop-color="#F5F5FA"/>
+      <stop offset="100%" stop-color="#909098"/>
+    </linearGradient>
+    <linearGradient id="ssEngraved" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#909098"/>
+      <stop offset="100%" stop-color="#D0D0D8"/>
     </linearGradient>
   </defs>
-  <circle cx="200" cy="80" r="35" fill="none" stroke="url(#ss)" stroke-width="10"/>
-  <rect x="130" y="130" width="140" height="180" rx="20" fill="url(#ss)" stroke="#666" stroke-width="2"/>
-  <text x="200" y="220" font-size="50" text-anchor="middle" fill="#222" font-family="Arial Black" font-weight="900">PIN</text>
-  <text x="200" y="270" font-size="20" text-anchor="middle" fill="#444" font-weight="bold">FORGE</text>
-  <circle cx="200" cy="115" r="6" fill="#666"/>
-
+  <rect width="400" height="400" fill="url(#bgSS)"/>
+  <circle cx="200" cy="80" r="38" fill="none" stroke="url(#ss)" stroke-width="12"/>
+  <rect x="120" y="125" width="160" height="195" rx="22" fill="url(#ss)" stroke="#666" stroke-width="2"/>
+  <rect x="125" y="130" width="150" height="185" rx="18" fill="url(#ssEngraved)" opacity="0.15"/>
+  <!-- Engraved logo -->
+  <text x="200" y="225" font-size="58" text-anchor="middle" fill="#1a1a1a" font-family="Arial Black" font-weight="900">PIN</text>
+  <text x="200" y="275" font-size="22" text-anchor="middle" fill="#1a1a1a" font-family="Arial Black" font-weight="700">FORGE</text>
+  <!-- Highlights -->
+  <rect x="125" y="130" width="20" height="185" rx="18" fill="#FFFFFF" opacity="0.4"/>
+  <circle cx="200" cy="115" r="7" fill="#666"/>
 </svg>

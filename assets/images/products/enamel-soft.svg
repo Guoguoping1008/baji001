@@ -1,16 +1,31 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400" width="400" height="400">
   <defs>
-    <radialGradient id="bg" cx="50%" cy="40%" r="80%">
+    <radialGradient id="bgS" cx="50%" cy="40%" r="80%">
       <stop offset="0%" stop-color="#FFFFFF"/>
       <stop offset="100%" stop-color="#F0F0F5"/>
     </radialGradient>
+    <linearGradient id="metalS" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#E0E0E5"/>
+      <stop offset="100%" stop-color="#A0A0A8"/>
+    </linearGradient>
+    <linearGradient id="purpleFill" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#A06EE2"/>
+      <stop offset="100%" stop-color="#5E3DAA"/>
+    </linearGradient>
   </defs>
-  
-  <circle cx="200" cy="200" r="130" fill="#E8E8EC" stroke="#A0A0A8" stroke-width="3"/>
-  <circle cx="200" cy="200" r="115" fill="#764BA2"/>
-  <path d="M 200 85 L 230 130 L 280 130 L 240 165 L 260 215 L 200 180 L 140 215 L 160 165 L 120 130 L 170 130 Z"
-        fill="#F093FB" stroke="#764BA2" stroke-width="3"/>
-  <circle cx="155" cy="155" r="18" fill="#FFFFFF" opacity="0.4"/>
-  <line x1="200" y1="330" x2="200" y2="380" stroke="#888" stroke-width="3"/>
-
+  <rect width="400" height="400" fill="url(#bgS)"/>
+  <!-- Textured metal rim -->
+  <circle cx="200" cy="200" r="135" fill="url(#metalS)" stroke="#707078" stroke-width="2"/>
+  <circle cx="200" cy="200" r="118" fill="none" stroke="#707078" stroke-width="1.5" stroke-dasharray="2 2"/>
+  <!-- Purple base -->
+  <circle cx="200" cy="200" r="110" fill="url(#purpleFill)"/>
+  <!-- Raised star (no fill, outlined) -->
+  <path d="M 200 110 L 220 175 L 285 175 L 235 215 L 255 280 L 200 235 L 145 280 L 165 215 L 115 175 L 180 175 Z"
+        fill="none" stroke="#FFFFFF" stroke-width="3.5" stroke-linejoin="round"/>
+  <!-- Texture lines -->
+  <circle cx="200" cy="200" r="108" fill="none" stroke="#FFFFFF" stroke-width="0.5" opacity="0.4"/>
+  <!-- Highlight -->
+  <ellipse cx="155" cy="145" rx="35" ry="18" fill="#FFFFFF" opacity="0.3"/>
+  <!-- Needle -->
+  <line x1="200" y1="335" x2="200" y2="385" stroke="#888" stroke-width="4" stroke-linecap="round"/>
 </svg>

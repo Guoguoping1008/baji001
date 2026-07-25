@@ -1,24 +1,36 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400" width="400" height="400">
   <defs>
-    <radialGradient id="bg" cx="50%" cy="40%" r="80%">
+    <radialGradient id="bgGf" cx="50%" cy="40%" r="80%">
       <stop offset="0%" stop-color="#FFFFFF"/>
       <stop offset="100%" stop-color="#F0F0F5"/>
     </radialGradient>
-  </defs>
-  
-  <defs>
-    <linearGradient id="box" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#FF8E53"/>
-      <stop offset="100%" stop-color="#FF6B35"/>
+    <linearGradient id="boxTop" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FFA07A"/>
+      <stop offset="100%" stop-color="#FF6347"/>
+    </linearGradient>
+    <linearGradient id="boxFront" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#FF6347"/>
+      <stop offset="100%" stop-color="#C0451A"/>
+    </linearGradient>
+    <linearGradient id="ribbon" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#FFE57F"/>
+      <stop offset="100%" stop-color="#FFC107"/>
     </linearGradient>
   </defs>
-  <rect x="80" y="140" width="240" height="200" fill="url(#box)" rx="5"/>
-  <rect x="80" y="140" width="240" height="40" fill="#C0451A" rx="5"/>
-  <rect x="190" y="140" width="20" height="200" fill="#C0451A"/>
-  <rect x="190" y="135" width="20" height="15" fill="#C0451A"/>
-  <!-- 蝴蝶结 -->
-  <path d="M 180 130 Q 200 100 220 130 Q 200 145 180 130 Z" fill="#FFD700"/>
-  <path d="M 220 130 Q 240 100 260 130 Q 240 145 220 130 Z" fill="#FFD700"/>
-  <text x="200" y="250" font-size="24" text-anchor="middle" fill="#FFFFFF" font-weight="bold">PREMIUM</text>
-
+  <rect width="400" height="400" fill="url(#bgGf)"/>
+  <!-- Box body -->
+  <rect x="80" y="150" width="240" height="200" fill="url(#boxFront)" stroke="#A03810" stroke-width="2" rx="4"/>
+  <!-- Top lid -->
+  <rect x="75" y="140" width="250" height="40" fill="url(#boxTop)" stroke="#A03810" stroke-width="2" rx="4"/>
+  <!-- Vertical ribbon -->
+  <rect x="190" y="140" width="20" height="210" fill="url(#ribbon)"/>
+  <!-- Horizontal ribbon -->
+  <rect x="80" y="170" width="240" height="18" fill="url(#ribbon)"/>
+  <!-- Bow -->
+  <ellipse cx="200" cy="135" rx="40" ry="20" fill="url(#ribbon)"/>
+  <ellipse cx="180" cy="130" rx="18" ry="12" fill="url(#ribbon)"/>
+  <ellipse cx="220" cy="130" rx="18" ry="12" fill="url(#ribbon)"/>
+  <!-- Highlight -->
+  <ellipse cx="160" cy="200" rx="30" ry="20" fill="#FFFFFF" opacity="0.3"/>
+  <text x="200" y="265" font-size="22" text-anchor="middle" fill="#FFFFFF" font-weight="bold" font-family="Arial">PREMIUM</text>
 </svg>

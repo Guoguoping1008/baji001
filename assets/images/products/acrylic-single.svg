@@ -1,18 +1,29 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400" width="400" height="400">
   <defs>
-    <radialGradient id="bg" cx="50%" cy="40%" r="80%">
+    <radialGradient id="bgA" cx="50%" cy="40%" r="80%">
       <stop offset="0%" stop-color="#FFFFFF"/>
       <stop offset="100%" stop-color="#F0F0F5"/>
     </radialGradient>
+    <linearGradient id="acrylicG" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FBC2EB"/>
+      <stop offset="100%" stop-color="#A6C1EE"/>
+    </linearGradient>
+    <linearGradient id="standShine" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#FFFFFF" stop-opacity="0.5"/>
+      <stop offset="50%" stop-color="#FFFFFF" stop-opacity="0"/>
+      <stop offset="100%" stop-color="#FFFFFF" stop-opacity="0.3"/>
+    </linearGradient>
   </defs>
-  
-  <rect x="100" y="80" width="200" height="280" rx="10" fill="#FBC2EB" stroke="#E8B0DB" stroke-width="3"/>
-  <rect x="115" y="95" width="170" height="250" rx="5" fill="#A6C1EE" opacity="0.7"/>
-  <text x="200" y="240" font-size="120" text-anchor="middle">🌸</text>
-  <!-- 高光 -->
-  <rect x="115" y="95" width="40" height="250" rx="5" fill="#FFFFFF" opacity="0.3"/>
-  <!-- 底座 -->
-  <ellipse cx="200" cy="370" rx="120" ry="8" fill="#000000" opacity="0.15"/>
-  <rect x="120" y="355" width="160" height="15" fill="#D0D0D8" rx="3"/>
-
+  <rect width="400" height="400" fill="url(#bgA)"/>
+  <!-- Acrylic body -->
+  <rect x="100" y="60" width="200" height="290" rx="14" fill="url(#acrylicG)" stroke="#9090C8" stroke-width="2"/>
+  <!-- Shine overlay -->
+  <rect x="100" y="60" width="50" height="290" rx="14" fill="url(#standShine)"/>
+  <!-- Character -->
+  <text x="200" y="225" font-size="140" text-anchor="middle">🌸</text>
+  <!-- Cast shadow under -->
+  <ellipse cx="200" cy="365" rx="125" ry="10" fill="#000000" opacity="0.15"/>
+  <!-- Stand base -->
+  <rect x="115" y="350" width="170" height="16" fill="#C0C0D0" rx="3"/>
+  <rect x="115" y="350" width="170" height="5" fill="#E5E5F5" rx="2"/>
 </svg>

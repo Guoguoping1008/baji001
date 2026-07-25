@@ -1,19 +1,19 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400" width="400" height="400">
   <defs>
-    <radialGradient id="bg" cx="50%" cy="40%" r="80%">
+    <radialGradient id="bgW" cx="50%" cy="40%" r="80%">
       <stop offset="0%" stop-color="#FFFFFF"/>
       <stop offset="100%" stop-color="#F0F0F5"/>
     </radialGradient>
-  </defs>
-  
-  <defs>
     <linearGradient id="silicone" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#FF6B35"/>
-      <stop offset="100%" stop-color="#FF6B35" stop-opacity="0.7"/>
+      <stop offset="0%" stop-color="#FF8B5A"/>
+      <stop offset="50%" stop-color="#E63946"/>
+      <stop offset="100%" stop-color="#B91C1C"/>
     </linearGradient>
   </defs>
-  <ellipse cx="200" cy="220" rx="160" ry="80" fill="none" stroke="url(#silicone)" stroke-width="50"/>
-  <ellipse cx="200" cy="220" rx="160" ry="80" fill="none" stroke="#FFFFFF" stroke-width="2" opacity="0.4"/>
-  <text x="200" y="234" font-size="36" text-anchor="middle" fill="#FFFFFF" font-family="Arial Black" font-weight="900">PINFORGE</text>
-
+  <rect width="400" height="400" fill="url(#bgW)"/>
+  <ellipse cx="200" cy="220" rx="170" ry="85" fill="none" stroke="url(#silicone)" stroke-width="55"/>
+  <ellipse cx="200" cy="220" rx="170" ry="85" fill="none" stroke="#FFFFFF" stroke-width="2" opacity="0.4"/>
+  <!-- Highlight -->
+  <path d="M 90 200 A 170 85 0 0 1 200 135" fill="none" stroke="#FFFFFF" stroke-width="6" opacity="0.4"/>
+  <text x="200" y="234" font-size="38" text-anchor="middle" fill="#FFFFFF" font-family="Arial Black" font-weight="900">PINFORGE</text>
 </svg>

@@ -1,15 +1,27 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400" width="400" height="400">
   <defs>
-    <radialGradient id="bg" cx="50%" cy="40%" r="80%">
+    <radialGradient id="bgMr" cx="50%" cy="40%" r="80%">
       <stop offset="0%" stop-color="#FFFFFF"/>
       <stop offset="100%" stop-color="#F0F0F5"/>
     </radialGradient>
+    <linearGradient id="orangeFill" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#FBBF24"/>
+      <stop offset="100%" stop-color="#D97706"/>
+    </linearGradient>
+    <linearGradient id="mirrorShine" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FFFFFF"/>
+      <stop offset="30%" stop-color="#E5F4FF"/>
+      <stop offset="70%" stop-color="#B8DCEE"/>
+      <stop offset="100%" stop-color="#FFFFFF"/>
+    </linearGradient>
   </defs>
-  
-  <circle cx="200" cy="200" r="135" fill="#FFFFFF" stroke="#D0D0D8" stroke-width="3"/>
-  <circle cx="200" cy="200" r="120" fill="#F59E0B"/>
-  <circle cx="200" cy="180" r="60" fill="#E5F4FF" stroke="#B8DCEE" stroke-width="2"/>
-  <circle cx="180" cy="165" r="15" fill="#FFFFFF" opacity="0.8"/>
-  <text x="200" y="290" font-size="22" text-anchor="middle" fill="#FFFFFF" font-weight="bold">MIRROR</text>
-
+  <rect width="400" height="400" fill="url(#bgMr)"/>
+  <circle cx="200" cy="200" r="140" fill="#F5F5F5" stroke="#A0A0A8" stroke-width="3"/>
+  <circle cx="200" cy="200" r="125" fill="url(#orangeFill)" stroke="#92400E" stroke-width="2"/>
+  <!-- Mirror center -->
+  <circle cx="200" cy="180" r="65" fill="url(#mirrorShine)" stroke="#B8DCEE" stroke-width="2"/>
+  <!-- Shine on mirror -->
+  <ellipse cx="180" cy="160" rx="20" ry="10" fill="#FFFFFF" opacity="0.8"/>
+  <text x="200" y="295" font-size="24" text-anchor="middle" fill="#FFFFFF" font-weight="bold" font-family="Arial">MIRROR</text>
+  <ellipse cx="155" cy="155" rx="50" ry="20" fill="#FFFFFF" opacity="0.3"/>
 </svg>

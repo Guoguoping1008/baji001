@@ -47,6 +47,8 @@ temp/
 __pycache__/
 *.pyc
 *.pyo
+cookies.txt
+login-page.html
 
 # Unrelated project artifacts (from previous WordPress / Elementor / other work)
 fix_home_h1.py
@@ -72,7 +74,5 @@ write_key.ps1
 write_key2.ps1
 
 # Source material directories (raw inputs, processed copies live in assets/images/)
-"M13 吧唧 资料/"
-"M13 吧唧 资料.rar"
-"苹果智能手机壳详情图片/"
-"苹果智能手机壳详情图片.rar"
+M13*/
+苹果*/

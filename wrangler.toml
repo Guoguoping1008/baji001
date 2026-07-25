@@ -9,6 +9,13 @@ command = ""
 [env.production.vars]
 SITE_URL = "https://pinforge.com"
 
-# Secrets (set via `wrangler secret put NAME` or dashboard):
-# SLACK_WEBHOOK_URL
-# RESEND_API_KEY
+# Secrets (set via `wrangler secret put NAME` or Cloudflare dashboard):
+# ADMIN_TOKEN          - admin panel auth (e.g., "pinforge2025")
+# SLACK_WEBHOOK_URL    - send inquiries to Slack channel
+# RESEND_API_KEY       - send email notifications
+#
+# KV Namespaces (create via Cloudflare dashboard, then bind here):
+# [[kv_namespaces]]
+# binding = "INQUIRIES"
+# id = "your-kv-namespace-id"
+# preview_id = "your-preview-kv-id"
