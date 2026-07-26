@@ -1,4 +1,4 @@
-name = "pinforge-b2b"
+name = "baji001"
 compatibility_date = "2024-12-01"
 compatibility_flags = ["nodejs_compat"]
 pages_build_output_dir = "."
@@ -9,23 +9,19 @@ command = "echo 'PinForge static site: no build step required, deploying root di
 
 # Cloudflare Pages Functions: KV namespace (REQUIRED for admin panel storage)
 #
-# IMPORTANT: To bind KV after Cloudflare Pages project is created in Dashboard,
-# run locally with valid CLOUDFLARE_API_TOKEN:
-#
-#   wrangler kv namespace create pinforge-inquiries
-#   wrangler kv namespace create pinforge-inquiries --preview
-#
-# Then put the IDs below. If you don't have a CLOUDFLARE_API_TOKEN yet,
-# SET THESE IN CLOUDFLARE DASHBOARD UNDER SETTINGS > FUNCTIONS > KV BINDINGS
-# INSTEAD of editing this file.
+# Setup steps (once, after Pages project is created):
+#   1. Run: wrangler kv namespace create pinforge-inquiries
+#   2. Copy the ID and put it below (replace placeholder)
+#   3. Or set this in Cloudflare Dashboard:
+#      Pages project → Settings → Functions → KV namespace bindings
+#      Variable name: INQUIRIES → Namespace: pinforge-inquiries
 [[kv_namespaces]]
 binding = "INQUIRIES"
-# id = "REPLACE_WITH_PRODUCTION_ID"
-# preview_id = "REPLACE_WITH_PREVIEW_ID"
+# id = ""  ← Replace with actual ID from `wrangler kv namespace create` output
 
 # Environment variables (non-secret public values)
 [env.production.vars]
-SITE_URL = "https://pinforge-b2b.pages.dev"
+SITE_URL = "https://baji001.pages.dev"
 
 # Secrets (NEVER commit these; set via `wrangler secret put NAME` or in Dashboard):
 #   ADMIN_TOKEN          — admin panel authentication (32-char random)
