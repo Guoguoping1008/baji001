@@ -1,0 +1,26 @@
+# Cloudflare Pages deployment configuration
+# Used when connecting Cloudflare Pages to GitHub via Cloudflare Dashboard
+# https://developers.cloudflare.com/pages/platform/build-configuration/
+
+build_command: ""
+publish: "."
+
+# Environment variables (non-secret public values)
+env:
+  production:
+    SITE_URL: "https://pinforge.com"
+
+# KV namespace bindings (REQUIRED for admin panel)
+# Set via: Cloudflare Dashboard → Pages → Settings → Functions → KV bindings
+# Variable name: INQUIRIES
+# KV namespace: pinforge-inquiries
+
+compatibility_date: "2024-12-01"
+compatibility_flags:
+  - "nodejs_compat"
+
+node_version: "20"
+
+# Build watch paths
+watch:
+  - "**/*.{html,css,js,svg,png,jpg,jpeg,webp,mp4,json,md}"

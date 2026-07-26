@@ -47,10 +47,18 @@ temp/
 __pycache__/
 *.pyc
 *.pyo
+
+# Unrelated project artifacts (WordPress / Elementor / etc.)
 cookies.txt
 login-page.html
-
-# Unrelated project artifacts (from previous WordPress / Elementor / other work)
+login-response.html
+plugins.html
+plugins*.html
+purge-response.html
+home-after.html
+home-final.html
+home-three-step.html
+home-edit-after.json
 fix_home_h1.py
 update_wp.py
 wp-update-results.json
@@ -58,10 +66,6 @@ wp-backup/
 wp-sitemap.xml
 wp-sitemap-pages.xml
 wp-sitemap-posts.xml
-home-after.html
-home-final.html
-home-three-step.html
-home-edit-after.json
 apply_three_step.py
 fix_elementor_again.py
 three-step-backup/
@@ -72,12 +76,10 @@ toboseo/
 toboseo_step1.py
 write_key.ps1
 write_key2.ps1
-
-# Source material directories (raw inputs, processed copies live in assets/images/)
-M13*/
-苹果*/login-response.html
-plugins.html
-plugins*.html
-purge-response.html
 _fix_*.py
-login-response.html
+
+# Source material directories (raw inputs)
+# These contain raw product photos not meant for the deployed site.
+# They have spaces - quote them with quotes or use Python script
+
+# Specific raw material dirs (handled manually due to spaces)
