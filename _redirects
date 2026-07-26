@@ -1,17 +1,16 @@
 # Cloudflare Pages redirects
 # https://developers.cloudflare.com/pages/configuration/redirects/
+#
+# NOTE: Cloudflare Pages automatically strips .html extension from URLs
+# So /cart.html -> /cart automatically. We only need redirects for
+# friendly URL aliases.
 
-# WWW to apex domain (uncomment after custom domain setup)
-# https://www.pinforge.com/* https://pinforge.com/:splat 301!
-
-# Friendly redirects
-/quote /customize.html 301
-/inquiry /customize.html 301
-/catalog /products.html 301
-/contact-us /contact.html 301
-/cart /cart.html 301
+# Friendly URL aliases
+/quote /customize 301
+/inquiry /customize 301
+/catalog /products 301
+/contact-us /contact 301
 
 # API routes (handled by Pages Functions)
 /api/inquiry /functions/api/inquiry.js 200
 /api/contact /functions/api/contact.js 200
-/admin /admin.html 301
