@@ -5,44 +5,32 @@ pages_build_output_dir = "."
 
 # Build configuration (Cloudflare Pages)
 [build]
-command = ""
+command = "echo 'PinForge static site: no build step required, deploying root directly'"
 
-# KV namespace binding (REQUIRED for admin panel storage)
-# Setup steps (once):
-#   1. Run: wrangler kv namespace create pinforge-inquiries
-#      Output example: { binding = "INQUIRIES", id = "abc123..." }
-#   2. Copy the id and put it below
-#   3. Set in Cloudflare Dashboard:
-#      Pages project → Settings → Functions → KV namespace bindings
-#      Variable name: INQUIRIES → Namespace: pinforge-inquiries
+# Cloudflare Pages Functions: KV namespace (REQUIRED for admin panel storage)
+#
+# IMPORTANT: To bind KV after Cloudflare Pages project is created in Dashboard,
+# run locally with valid CLOUDFLARE_API_TOKEN:
+#
+#   wrangler kv namespace create pinforge-inquiries
+#   wrangler kv namespace create pinforge-inquiries --preview
+#
+# Then put the IDs below. If you don't have a CLOUDFLARE_API_TOKEN yet,
+# SET THESE IN CLOUDFLARE DASHBOARD UNDER SETTINGS > FUNCTIONS > KV BINDINGS
+# INSTEAD of editing this file.
 [[kv_namespaces]]
 binding = "INQUIRIES"
-# id = ""  ← Replace with actual ID from `wrangler kv namespace create` output
+# id = "REPLACE_WITH_PRODUCTION_ID"
+# preview_id = "REPLACE_WITH_PREVIEW_ID"
 
 # Environment variables (non-secret public values)
 [env.production.vars]
 SITE_URL = "https://pinforge-b2b.pages.dev"
 
-# Secrets (NEVER commit these; set via `wrangler secret put NAME`):
+# Secrets (NEVER commit these; set via `wrangler secret put NAME` or in Dashboard):
 #   ADMIN_TOKEN          — admin panel authentication (32-char random)
 #   SLACK_WEBHOOK_URL    — Slack channel webhook for inquiry notifications
 #   RESEND_API_KEY       — Resend email API for inquiry notifications
-#
-# Examples:
-#   wrangler secret put ADMIN_TOKEN
-#   wrangler secret put SLACK_WEBHOOK_URL
-#   wrangler secret put RESEND_API_KEY
 
 # Node version for Functions
 node_version = "20"
-
-# Deployment notes:
-# Method 1: GitHub Integration (RECOMMENDED)
-#   - Cloudflare Dashboard → Pages → Connect to Git
-#   - Select Guoguoping1008/baji001
-#   - Branch: main, Output: /
-#   - Auto-deploys on every push
-#
-# Method 2: Direct upload (CLI)
-#   wrangler pages deploy . --project-name=pinforge-b2b
-#   Requires: CLOUDFLARE_API_TOKEN env var

@@ -1,0 +1,17 @@
+{
+  "name": "pinforge-b2b-site",
+  "version": "1.4.2",
+  "private": true,
+  "description": "PinForge B2B multilingual site (5 languages, static + Cloudflare Pages Functions)",
+  "scripts": {
+    "build": "echo 'Static site — no build step needed. All files deploy as-is.' && exit 0",
+    "deploy:cloudflare": "wrangler pages deploy . --project-name=pinforge-b2b --branch=main",
+    "deploy:github": "echo 'GitHub Pages deployed via .github/workflows/deploy.yml (auto-runs on push)'"
+  },
+  "keywords": ["pinforge", "pin-badge", "enamel-pin", "B2B", "manufacturing"],
+  "author": "PinForge",
+  "license": "UNLICENSED",
+  "engines": {
+    "node": ">=18"
+  }
+}
