@@ -1,21 +1,48 @@
-name = "pinforge"
+name = "pinforge-b2b"
 compatibility_date = "2024-12-01"
 compatibility_flags = ["nodejs_compat"]
 pages_build_output_dir = "."
 
+# Build configuration (Cloudflare Pages)
 [build]
 command = ""
 
-[env.production.vars]
-SITE_URL = "https://pinforge.com"
+# KV namespace binding (REQUIRED for admin panel storage)
+# Setup steps (once):
+#   1. Run: wrangler kv namespace create pinforge-inquiries
+#      Output example: { binding = "INQUIRIES", id = "abc123..." }
+#   2. Copy the id and put it below
+#   3. Set in Cloudflare Dashboard:
+#      Pages project → Settings → Functions → KV namespace bindings
+#      Variable name: INQUIRIES → Namespace: pinforge-inquiries
+[[kv_namespaces]]
+binding = "INQUIRIES"
+# id = ""  ← Replace with actual ID from `wrangler kv namespace create` output
 
-# Secrets (set via `wrangler secret put NAME` or Cloudflare dashboard):
-# ADMIN_TOKEN          - admin panel auth (e.g., "pinforge2025")
-# SLACK_WEBHOOK_URL    - send inquiries to Slack channel
-# RESEND_API_KEY       - send email notifications
+# Environment variables (non-secret public values)
+[env.production.vars]
+SITE_URL = "https://pinforge-b2b.pages.dev"
+
+# Secrets (NEVER commit these; set via `wrangler secret put NAME`):
+#   ADMIN_TOKEN          — admin panel authentication (32-char random)
+#   SLACK_WEBHOOK_URL    — Slack channel webhook for inquiry notifications
+#   RESEND_API_KEY       — Resend email API for inquiry notifications
 #
-# KV Namespaces (create via Cloudflare dashboard, then bind here):
-# [[kv_namespaces]]
-# binding = "INQUIRIES"
-# id = "your-kv-namespace-id"
-# preview_id = "your-preview-kv-id"
+# Examples:
+#   wrangler secret put ADMIN_TOKEN
+#   wrangler secret put SLACK_WEBHOOK_URL
+#   wrangler secret put RESEND_API_KEY
+
+# Node version for Functions
+node_version = "20"
+
+# Deployment notes:
+# Method 1: GitHub Integration (RECOMMENDED)
+#   - Cloudflare Dashboard → Pages → Connect to Git
+#   - Select Guoguoping1008/baji001
+#   - Branch: main, Output: /
+#   - Auto-deploys on every push
+#
+# Method 2: Direct upload (CLI)
+#   wrangler pages deploy . --project-name=pinforge-b2b
+#   Requires: CLOUDFLARE_API_TOKEN env var
