@@ -1,34 +1,17 @@
 name = "baji001"
 compatibility_date = "2024-12-01"
-compatibility_flags = ["nodejs_compat"]
 pages_build_output_dir = "."
 
-# Build configuration (Cloudflare Pages)
-[build]
-command = "echo 'PinForge static site: no build step required, deploying root directly'"
+# Simple Cloudflare Pages configuration
+# Cloudflare Pages GitHub integration handles deployment automatically
+# when this wrangler.toml file is in the repo root.
 
-# Environment variables (non-secret public values)
-[env.production.vars]
-SITE_URL = "https://baji001.pages.dev"
-
-[env.preview.vars]
-SITE_URL = "https://preview-baji001.pages.dev"
-
-# KV namespace binding for INQUIRIES (admin panel + inquiry storage)
-# MUST be configured via Cloudflare Dashboard, NOT here:
+# KV namespace binding for admin/inquiry storage.
+# MUST be added via Cloudflare Dashboard:
 # Pages project → Settings → Functions → KV namespace bindings
-# - Variable name: INQUIRIES
-# - KV namespace: pinforge-inquiries
-#
-# Note: Cloudflare Pages KV bindings are configured via the Dashboard UI,
-# not wrangler.toml, to avoid build-time ID validation issues.
-# After creating the KV namespace in Dashboard, the binding will be
-# available to functions automatically.
+# Variable name: INQUIRIES → namespace: pinforge-inquiries
 
-# Secrets (NEVER commit these; set via `wrangler secret put NAME` or in Dashboard):
-#   ADMIN_TOKEN          — admin panel authentication (32-char random)
-#   SLACK_WEBHOOK_URL    — Slack channel webhook for inquiry notifications
-#   RESEND_API_KEY       — Resend email API for inquiry notifications
-
-# Node version for Functions
-node_version = "20"
+# Secrets to be added via Cloudflare Dashboard:
+# ADMIN_TOKEN — admin authentication
+# SLACK_WEBHOOK_URL — Slack notifications
+# RESEND_API_KEY — email notifications
