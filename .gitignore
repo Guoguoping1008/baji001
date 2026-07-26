@@ -83,3 +83,7 @@ _fix_*.py
 # They have spaces - quote them with quotes or use Python script
 
 # Specific raw material dirs (handled manually due to spaces)
+
+cookies-new.txt
+cookies-old.txt
+old-login-result.html

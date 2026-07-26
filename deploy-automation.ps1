@@ -1,89 +1,106 @@
 <#
 .SYNOPSIS
-  PinForge 部署自动化脚本
+  PinForge 部署检查 + 验证脚本（适用于 GitHub Pages 已部署的情况）
 #>
 
 $ErrorActionPreference = 'Stop'
 $GitHubRepo = 'Guoguoping1008/baji001'
 $ProjectName = 'pinforge'
+$BaseUrl = "https://guoguoping1008.github.io/baji001"
 
 Clear-Host
 Write-Host @"
 ╔════════════════════════════════════════════════╗
-║   PinForge B2B Site — Deploy Automation        ║
+║  PinForge B2B Site — Deployment Verifier      ║
 ╚════════════════════════════════════════════════╝
 "@ -ForegroundColor Cyan
 
-# Step 1: Verify git
-Write-Host "`n═══ Step 1: Verify repo ═══" -ForegroundColor Magenta
-$branch = git -C $PSScriptRoot branch --show-current 2>$null
-if ($LASTEXITCODE -ne 0) {
-    Write-Host "  X Not in git repo" -ForegroundColor Red
-    exit 1
+# Step 1: GitHub Pages status
+Write-Host "`n[1/5] GitHub Pages status" -ForegroundColor Magenta
+try {
+    $pages = Invoke-RestMethod -Uri "https://api.github.com/repos/$GitHubRepo/pages" -UseBasicParsing -ErrorAction Stop
+    Write-Host "  + ENABLED" -ForegroundColor Green
+    Write-Host "  + URL: $($pages.html_url)" -ForegroundColor Green
+    Write-Host "  + Status: $($pages.status)" -ForegroundColor Green
+} catch {
+    Write-Host "  ! NOT YET ENABLED in Settings" -ForegroundColor Yellow
+    Write-Host "    Fix: https://github.com/$GitHubRepo/settings/pages" -ForegroundColor Yellow
 }
-Write-Host "  + Branch: $branch" -ForegroundColor Green
 
-# Step 2: Check config files
-Write-Host "`n═══ Step 2: Verify config files ═══" -ForegroundColor Magenta
-$files = @('static.yml', '.github/workflows/deploy.yml', 'wrangler.toml',
-           'DEPLOYMENT_GUIDE.md', 'DEPLOY_NOW.md', 'DEPLOY_QUICKSTART.md',
-           'deploy-automation.ps1', '_redirects', '_headers')
-foreach ($f in $files) {
-    $path = Join-Path $PSScriptRoot $f
-    if (Test-Path $path) {
-        Write-Host "  + $f" -ForegroundColor Green
-    } else {
-        Write-Host "  X Missing: $f" -ForegroundColor Red
+# Step 2: Latest deployment
+Write-Host "`n[2/5] Latest workflow deployment" -ForegroundColor Magenta
+try {
+    $runs = Invoke-RestMethod -Uri "https://api.github.com/repos/$GitHubRepo/actions/runs?per_page=3" -UseBasicParsing
+    foreach ($run in $runs.workflow_runs) {
+        $icon = if ($run.conclusion -eq 'success') {'+'} else {'!'}
+        $color = if ($run.conclusion -eq 'success') {'Green'} else {'Yellow'}
+        Write-Host "  $icon $($run.display_title): $($run.conclusion)" -ForegroundColor $color
     }
-}
-
-# Step 3: Manual instructions
-Write-Host "`n═══ Step 3: Manual Web UI steps ═══" -ForegroundColor Magenta
-Write-Host ""
-Write-Host "  GitHub Pages (REQUIRED):" -ForegroundColor Cyan
-Write-Host "    1. https://github.com/$GitHubRepo/settings/pages"
-Write-Host "    2. Source -> GitHub Actions -> Save"
-Write-Host ""
-Write-Host "  Cloudflare Pages (RECOMMENDED):" -ForegroundColor Cyan
-Write-Host "    1. https://dash.cloudflare.com -> Pages"
-Write-Host "    2. Connect GitHub -> pinforge"
-Write-Host "    3. Framework: None, Output: /"
-Write-Host ""
-Write-Host "  Cloudflare env (for Admin):" -ForegroundColor Cyan
-Write-Host "    1. Create KV: pinforge-inquiries"
-Write-Host "    2. Pages -> Settings -> Functions -> KV bindings"
-Write-Host "    3. Add ADMIN_TOKEN env var"
-Write-Host "    4. Redeploy"
-
-# Step 4: Check GitHub Pages status
-Write-Host "`n═══ Step 4: Check GitHub Pages ═══" -ForegroundColor Magenta
-try {
-    $pages = Invoke-RestMethod -Uri "https://api.github.com/repos/$GitHubRepo/pages" -ErrorAction Stop
-    Write-Host "  + GitHub Pages: $($pages.status)" -ForegroundColor Green
-    Write-Host "  + URL: $($pages.html_url)" -ForegroundColor Cyan
 } catch {
-    Write-Host "  ! GitHub Pages NOT YET enabled (Settings -> Pages)" -ForegroundColor Yellow
+    Write-Host "  ! Cannot fetch workflow runs" -ForegroundColor Yellow
 }
 
-# Step 5: Check Cloudflare Pages (DNS-based check)
-Write-Host "`n═══ Step 5: Check Cloudflare Pages ═══" -ForegroundColor Magenta
-try {
-    $cfTest = Invoke-WebRequest -Uri "https://$ProjectName.pages.dev/" -UseBasicParsing -ErrorAction Stop
-    Write-Host "  + Cloudflare Pages: $($cfTest.StatusCode)" -ForegroundColor Green
-} catch {
-    Write-Host "  ! Cloudflare Pages NOT YET deployed (check Dashboard)" -ForegroundColor Yellow
-}
+# Step 3: Live URL test
+Write-Host "`n[3/5] Live URL tests" -ForegroundColor Magenta
+$urls = @(
+    @{path='/'; label='Home (en)'},
+    @{path='/en/'; label='English (/en/)'},
+    @{path='/ja/'; label='Japanese'},
+    @{path='/zh/'; label='Chinese'},
+    @{path='/ko/'; label='Korean'},
+    @{path='/es/'; label='Spanish'},
+    @{path='/product-m13.html'; label='M13 Smart Badge'},
+    @{path='/product-phonecase.html'; label='iPhone Case'},
+    @{path='/cart.html'; label='Cart'},
+    @{path='/customize.html'; label='Inquiry Form'},
+    @{path='/admin.html'; label='Admin'},
+    @{path='/sitemap.xml'; label='Sitemap'},
+    @{path='/404.html'; label='Custom 404'}
+)
 
-# Step 6: Test GitHub Pages URLs
-Write-Host "`n═══ Step 6: Test GitHub Pages URLs ═══" -ForegroundColor Magenta
-$paths = @('/', '/en/', '/ja/', '/zh/', '/ko/', '/es/')
-foreach ($p in $paths) {
+$success = 0
+$failed = 0
+foreach ($u in $urls) {
+    $full = "$BaseUrl$($u.path)"
     try {
-        $r = Invoke-WebRequest -Uri "https://guoguoping1008.github.io/baji001$p" -UseBasicParsing -ErrorAction Stop
-        Write-Host "  + $p -> $($r.StatusCode)" -ForegroundColor Green
+        $code = (Invoke-WebRequest -Uri $full -UseBasicParsing -MaximumRedirection 0 -ErrorAction Stop).StatusCode
+        if ($code -ge 200 -and $code -lt 400) {
+            Write-Host "  + $($u.path) ($code)" -ForegroundColor Green
+            $script:success++
+        } else {
+            Write-Host "  ! $($u.path) ($code)" -ForegroundColor Yellow
+            $script:failed++
+        }
     } catch {
-        Write-Host "  ! $p -> Not reachable" -ForegroundColor Yellow
+        $script:failed++
+        Write-Host "  - $($u.path) (failed)" -ForegroundColor Red
     }
 }
+Write-Host "`n  Result: $success OK, $failed failed" -ForegroundColor $(if ($failed -eq 0) {'Green'} else {'Yellow'})
 
-Write-Host "`nDone. See DEPLOY_NOW.md for action items.`n" -ForegroundColor Cyan
+# Step 4: Cloudflare Pages check
+Write-Host "`n[4/5] Cloudflare Pages status" -ForegroundColor Magenta
+$cfUrl = "https://$ProjectName.pages.dev"
+try {
+    $r = Invoke-WebRequest -Uri $cfUrl -UseBasicParsing -MaximumRedirection 0 -ErrorAction Stop
+    Write-Host "  + DEPLOYED at $cfUrl" -ForegroundColor Green
+    Write-Host "  + Status: $($r.StatusCode)" -ForegroundColor Green
+} catch {
+    Write-Host "  ! NOT YET DEPLOYED (need Cloudflare Web UI setup)" -ForegroundColor Yellow
+    Write-Host "    Steps: see DEPLOY_NOW.md" -ForegroundColor Cyan
+}
+
+# Step 5: SEO submission status
+Write-Host "`n[5/5] Next steps for SEO" -ForegroundColor Magenta
+Write-Host "  Recommended actions:" -ForegroundColor Cyan
+Write-Host "    1. Submit sitemap to Google Search Console" -ForegroundColor White
+Write-Host "       https://search.google.com/search-console/" -ForegroundColor Gray
+Write-Host "    2. Submit to Bing Webmaster" -ForegroundColor White
+Write-Host "       https://www.bing.com/webmasters" -ForegroundColor Gray
+Write-Host "    3. Submit to Baidu Zhanzhang" -ForegroundColor White
+Write-Host "       https://ziyuan.baidu.com/" -ForegroundColor Gray
+Write-Host "`n  Full guide: SEO_SUBMIT_GUIDE.md" -ForegroundColor Cyan
+
+Write-Host "`n[summary]" -ForegroundColor Cyan
+Write-Host "  Primary URL: $BaseUrl/" -ForegroundColor Green
+Write-Host "  Repository:  https://github.com/$GitHubRepo" -ForegroundColor Cyan
