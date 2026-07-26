@@ -75,4 +75,9 @@ write_key2.ps1
 
 # Source material directories (raw inputs, processed copies live in assets/images/)
 M13*/
-苹果*/
+苹果*/login-response.html
+plugins.html
+plugins*.html
+purge-response.html
+_fix_*.py
+login-response.html

@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>장바구니 — PinForge | B2B 도매 핀 & 배지</title>
+    <meta name="description" content="B2B 주문 검토. 공장 직송 가격, MOQ 50개, 전 세계 배송.">
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <link rel="stylesheet" href="../assets/css/product-detail.css">
+    <link rel="stylesheet" href="../assets/css/cart.css">
+    <link rel="icon" type="image/svg+xml" href="../assets/images/favicon.svg">
+<style>
+.lang-switcher { position: relative !important; }
+.lang-dropdown {
+    display: none;
+    position: absolute;
+    top: 100%;
+    right: 0;
+    background: white;
+    border: 1px solid #E5E7EB;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    list-style: none !important;
+    padding: 8px 0 !important;
+    margin: 4px 0 0 !important;
+    min-width: 140px;
+    z-index: 1000;
+    gap: 0 !important;
+}
+.lang-switcher:hover .lang-dropdown,
+.lang-dropdown:hover { display: block; }
+.lang-dropdown li {
+    list-style: none !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    width: 100%;
+}
+.lang-dropdown a {
+    display: block !important;
+    padding: 8px 16px !important;
+    color: #1F2937 !important;
+    font-size: 14px;
+    text-decoration: none;
+}
+.lang-dropdown a:hover { background: #F3F4F6; }
+.lang-dropdown a.lang-active { color: #E63946; font-weight: 600; }
+.lang-toggle { cursor: pointer; }
+</style>
+
+    <link rel="alternate" hreflang="en" href="https://pinforge.com/en/cart.html">
+    <link rel="alternate" hreflang="ja" href="https://pinforge.com/ja/cart.html">
+    <link rel="alternate" hreflang="zh" href="https://pinforge.com/zh/cart.html">
+    <link rel="alternate" hreflang="x-default" href="https://pinforge.com/en/cart.html">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="container">
+            <a href="../index.html" class="logo">
+                <img src="../assets/images/logo.svg" alt="PinForge Logo" class="logo-icon" width="36" height="36">
+                <span class="logo-text">Pin<strong>Forge</strong></span>
+            </a>
+            <ul class="nav-menu">
+                                <li class="lang-switcher">
+                    <a href="#" class="lang-toggle" aria-label="Change language">
+                        🌐 <span class="lang-current">🇺🇸 EN</span> ▾
+                    </a>
+                    <ul class="lang-dropdown">
+                        <li><a href="../index.html" class="lang-active">🇺🇸 EN</a></li>
+                        <li><a href="../ja/index.html">🇯🇵 日本語</a></li>
+                        <li><a href="../zh/index.html">🇨🇳 中文</a></li>
+                    </ul>
+                </li>
+
+                <li><a href="../index.html">홈</a></li>
+                <li><a href="../products.html">제품</a></li>
+                <li><a href="../customize.html">커스텀 서비스</a></li>
+                <li><a href="../about.html">회사 정보</a></li>
+                <li><a href="../contact.html">문의하기</a></li>
+            </ul>
+            <a href="../cart.html" class="btn btn-primary nav-cta cart-trigger">
+                🛒 Cart <span class="cart-badge">0</span>
+            </a>
+            <button class="nav-toggle" aria-label="Toggle menu">☰</button>
+        </div>
+    </nav>
+
+    <section class="page-header">
+        <div class="container">
+            <h1>B2B 장바구니</h1>
+            <p>공장 직송 가격 · 상품별 MOQ 적용 · 전 세계 배송</p>
+        </div>
+    </section>
+
+    <section class="cart-section">
+        <div class="container">
+            <div class="cart-grid">
+                <div class="cart-items-wrapper">
+                    <h2>📦 상품</h2>
+                    <div class="cart-items">
+                        <!-- Populated by cart.js -->
+                    </div>
+                </div>
+
+                <aside class="cart-summary">
+                    <h2>🧾 주문 요약</h2>
+                    <div class="summary-row">
+                        <span>소계</span>
+                        <strong class="cart-total-amount">$0.00</strong>
+                    </div>
+                    <div class="summary-row">
+                        <span>Estimated 배송</span>
+                        <span class="text-muted">견적 시 계산</span>
+                    </div>
+                    <div class="summary-row">
+                        <span>관세</span>
+                        <span class="text-muted">DDP 가능</span>
+                    </div>
+                    <div class="summary-divider"></div>
+                    <div class="summary-note">
+                        💡 가격은 공장 직송입니다. 최종 견적에는 배송비 및 관련 관세가 포함됩니다. MOQ는 SKU별로 적용됩니다.
+                    </div>
+
+                    <button class="btn btn-primary btn-lg btn-block" onclick="Cart.checkoutWhatsApp()">
+                        💬 WhatsApp로 결제
+                    </button>
+                    <a href="../customize.html" class="btn btn-outline btn-block">
+                        커스텀 필요? 전체 양식 사용 →
+                    </a>
+
+                    <div class="trust-note">
+                        🔒 지금 결제 없음 — 영업팀과 주문 세부 정보를 확인한 후 송장을 받으실 수 있습니다.
+                    </div>
+                </aside>
+            </div>
+        </div>
+    </section>
+
+    <section class="cart-empty-section">
+        <div class="container">
+            <h2>쇼핑 계속하기</h2>
+            <div class="cart-continue-grid">
+                <a href="../products.html" class="continue-card">
+                    <span class="continue-icon">📌</span>
+                    <strong>에나멜 핀 & Badges</strong>
+                    <small>MOQ 50개 · $0.18/개부터</small>
+                </a>
+                <a href="../product-m13.html" class="continue-card">
+                    <span class="continue-icon">📱</span>
+                    <strong>M13 스마트 배지</strong>
+                    <small>MOQ 50개 · $18.90/개부터</small>
+                </a>
+                <a href="../product-phonecase.html" class="continue-card">
+                    <span class="continue-icon">📱</span>
+                    <strong>iPhone 케이스</strong>
+                    <small>MOQ 50개 · $1.85/개부터</small>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h4>📌 PinForge</h4>
+                    <p>프리미엄 커스텀 상품 공장. 스마트 배지, 폰 케이스, 에나멜 핀 등.</p>
+                    <div class="social-links">
+                        <a href="#" aria-label="Facebook">📘</a>
+                        <a href="#" aria-label="Instagram">📷</a>
+                        <a href="#" aria-label="TikTok">🎵</a>
+                        <a href="#" aria-label="Xiaohongshu">📕</a>
+                    </div>
+                </div>
+                <div class="footer-col">
+                    <h4>제품</h4>
+                    <ul>
+                        <li><a href="../product-m13.html">🆕 M13 스마트 배지</a></li>
+                        <li><a href="../product-phonecase.html">Custom iPhone 케이스</a></li>
+                        <li><a href="products.html#enamel">에나멜 핀</a></li>
+                        <li><a href="products.html#acrylic">아크릴 스탠디</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>서비스</h4>
+                    <ul>
+                        <li><a href="../customize.html">커스텀 제조</a></li>
+                        <li><a href="../customize.html">화이트 라벨 앱</a></li>
+                        <li><a href="products.html#sourcing">소싱 서비스</a></li>
+                        <li><a href="../contact.html">도매 문의</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>문의하기</h4>
+                    <ul>
+                        <li>📧 <a href="mailto:Devllin@outlook.com" class="email-text-link">Devllin@outlook.com</a></li>
+                        <li>💬 <a href="https://wa.me/861****8590" target="_blank" rel="noopener" class="wa-text-link">WhatsApp: +86 13925748590</a></li>
+                        <li>📍 <a href="../contact.html">Dongguan, China</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 PinForge. 모든 권리 보유.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../assets/js/main.js"></script>
+    <script src="../assets/js/cart.js"></script>
+</body>
+</html>
