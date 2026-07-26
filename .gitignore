@@ -87,3 +87,5 @@ _fix_*.py
 cookies-new.txt
 cookies-old.txt
 old-login-result.html
+
+credentials.txt
