@@ -7,33 +7,23 @@ pages_build_output_dir = "."
 [build]
 command = "echo 'PinForge static site: no build step required, deploying root directly'"
 
-# KV namespace binding (REQUIRED for admin panel storage)
-#
-# Setup (after KV namespace is created via wrangler kv namespace create or Dashboard):
-#   1. Run: wrangler kv namespace create pinforge-inquiries
-#   2. Copy the ID and put it below
-#   OR: Set in Cloudflare Dashboard → Pages project → Settings → Functions → KV bindings
-[[kv_namespaces]]
-binding = "INQUIRIES"
-id = "REPLACE_WITH_KV_NAMESPACE_ID"
-preview_id = "REPLACE_WITH_PREVIEW_KV_NAMESPACE_ID"
-
-# Environment-specific overrides (must include kv_namespaces for production)
-[env.production]
+# Environment variables (non-secret public values)
 [env.production.vars]
 SITE_URL = "https://baji001.pages.dev"
 
-[[env.production.kv_namespaces]]
-binding = "INQUIRIES"
-id = "REPLACE_WITH_KV_NAMESPACE_ID"
-
-[env.preview]
 [env.preview.vars]
 SITE_URL = "https://preview-baji001.pages.dev"
 
-[[env.preview.kv_namespaces]]
-binding = "INQUIRIES"
-id = "REPLACE_WITH_PREVIEW_KV_NAMESPACE_ID"
+# KV namespace binding for INQUIRIES (admin panel + inquiry storage)
+# MUST be configured via Cloudflare Dashboard, NOT here:
+# Pages project → Settings → Functions → KV namespace bindings
+# - Variable name: INQUIRIES
+# - KV namespace: pinforge-inquiries
+#
+# Note: Cloudflare Pages KV bindings are configured via the Dashboard UI,
+# not wrangler.toml, to avoid build-time ID validation issues.
+# After creating the KV namespace in Dashboard, the binding will be
+# available to functions automatically.
 
 # Secrets (NEVER commit these; set via `wrangler secret put NAME` or in Dashboard):
 #   ADMIN_TOKEN          — admin panel authentication (32-char random)
