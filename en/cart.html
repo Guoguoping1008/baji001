@@ -1,210 +1,243 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Shopping Cart — PinForge | B2B Wholesale Pins & Badges</title>
-    <meta name="description" content="Review your B2B order. Factory-direct pricing, MOQ 50pcs, worldwide shipping.">
-    <link rel="stylesheet" href="../assets/css/style.css">
-    <link rel="stylesheet" href="../assets/css/product-detail.css">
-    <link rel="stylesheet" href="../assets/css/cart.css">
-    <link rel="icon" type="image/svg+xml" href="../assets/images/favicon.svg">
-<style>
-.lang-switcher { position: relative !important; }
-.lang-dropdown {
-    display: none;
-    position: absolute;
-    top: 100%;
-    right: 0;
-    background: white;
-    border: 1px solid #E5E7EB;
-    border-radius: 8px;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-    list-style: none !important;
-    padding: 8px 0 !important;
-    margin: 4px 0 0 !important;
-    min-width: 140px;
-    z-index: 1000;
-    gap: 0 !important;
-}
-.lang-switcher:hover .lang-dropdown,
-.lang-dropdown:hover { display: block; }
-.lang-dropdown li {
-    list-style: none !important;
-    padding: 0 !important;
-    margin: 0 !important;
-    width: 100%;
-}
-.lang-dropdown a {
-    display: block !important;
-    padding: 8px 16px !important;
-    color: #1F2937 !important;
-    font-size: 14px;
-    text-decoration: none;
-}
-.lang-dropdown a:hover { background: #F3F4F6; }
-.lang-dropdown a.lang-active { color: #E63946; font-weight: 600; }
-.lang-toggle { cursor: pointer; }
-</style>
+1|1|1|<!DOCTYPE html>
+2|2|2|<html lang="en">
+3|3|3|<head>
+4|4|4|    <meta charset="UTF-8">
+5|5|5|    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <link rel="alternate" hreflang="en" href="https://pinforge.com/en/cart.html">
-    <link rel="alternate" hreflang="ja" href="https://pinforge.com/ja/cart.html">
-    <link rel="alternate" hreflang="zh" href="https://pinforge.com/zh/cart.html">
-    <link rel="alternate" hreflang="x-default" href="https://pinforge.com/en/cart.html">
-</head>
-<body>
-    <nav class="navbar">
-        <div class="container">
-            <a href="../index.html" class="logo">
-                <img src="../assets/images/logo.svg" alt="PinForge Logo" class="logo-icon" width="36" height="36">
-                <span class="logo-text">Pin<strong>Forge</strong></span>
-            </a>
-            <ul class="nav-menu">
-                                <li class="lang-switcher">
-                    <a href="#" class="lang-toggle" aria-label="Change language">
-                        🌐 <span class="lang-current">🇺🇸 EN</span> ▾
-                    </a>
-                    <ul class="lang-dropdown">
-                        <li><a href="../index.html" class="lang-active">🇺🇸 EN</a></li>
-                        <li><a href="../ja/index.html">🇯🇵 日本語</a></li>
-                        <li><a href="../zh/index.html">🇨🇳 中文</a></li>
-                    </ul>
-                </li>
+    <!-- SEO: canonical + hreflang (5 locales, verified 2026-08-02) -->
+    <link rel="canonical" href="https://guoguoping1008.github.io/baji001/cart.html">
+    <link rel="alternate" hreflang="en" href="https://guoguoping1008.github.io/baji001/cart.html">
+    <link rel="alternate" hreflang="zh" href="https://guoguoping1008.github.io/baji001/zh/cart.html">
+    <link rel="alternate" hreflang="ja" href="https://guoguoping1008.github.io/baji001/ja/cart.html">
+    <link rel="alternate" hreflang="ko" href="https://guoguoping1008.github.io/baji001/ko/cart.html">
+    <link rel="alternate" hreflang="es" href="https://guoguoping1008.github.io/baji001/es/cart.html">
+    <link rel="alternate" hreflang="x-default" href="https://guoguoping1008.github.io/baji001/cart.html">
 
-                <li><a href="../index.html">Home</a></li>
-                <li><a href="../products.html">Products</a></li>
-                <li><a href="../customize.html">Custom Service</a></li>
-                <li><a href="../about.html">About</a></li>
-                <li><a href="../contact.html">Contact</a></li>
-            </ul>
-            <a href="../cart.html" class="btn btn-primary nav-cta cart-trigger">
-                🛒 Cart <span class="cart-badge">0</span>
-            </a>
-            <button class="nav-toggle" aria-label="Toggle menu">☰</button>
-        </div>
-    </nav>
-
-    <section class="page-header">
-        <div class="container">
-            <h1>Your B2B Cart</h1>
-            <p>Factory-direct pricing · MOQ applies per item · Worldwide shipping</p>
-        </div>
-    </section>
-
-    <section class="cart-section">
-        <div class="container">
-            <div class="cart-grid">
-                <div class="cart-items-wrapper">
-                    <h2>📦 Items</h2>
-                    <div class="cart-items">
-                        <!-- Populated by cart.js -->
-                    </div>
-                </div>
-
-                <aside class="cart-summary">
-                    <h2>🧾 Order Summary</h2>
-                    <div class="summary-row">
-                        <span>Subtotal</span>
-                        <strong class="cart-total-amount">$0.00</strong>
-                    </div>
-                    <div class="summary-row">
-                        <span>Estimated Shipping</span>
-                        <span class="text-muted">Calculated at quote</span>
-                    </div>
-                    <div class="summary-row">
-                        <span>Custom Duties</span>
-                        <span class="text-muted">DDP available</span>
-                    </div>
-                    <div class="summary-divider"></div>
-                    <div class="summary-note">
-                        💡 Prices are factory-direct. Final quote includes shipping & any applicable duties. MOQ applies per SKU.
-                    </div>
-
-                    <button class="btn btn-primary btn-lg btn-block" onclick="Cart.checkoutWhatsApp()">
-                        💬 Checkout via WhatsApp
-                    </button>
-                    <a href="../customize.html" class="btn btn-outline btn-block">
-                        Need Custom? Use Full Form →
-                    </a>
-
-                    <div class="trust-note">
-                        🔒 No payment now — you'll receive an invoice after confirming order details with our sales team.
-                    </div>
-                </aside>
-            </div>
-        </div>
-    </section>
-
-    <section class="cart-empty-section">
-        <div class="container">
-            <h2>Continue Shopping</h2>
-            <div class="cart-continue-grid">
-                <a href="../products.html" class="continue-card">
-                    <span class="continue-icon">📌</span>
-                    <strong>Enamel Pins & Badges</strong>
-                    <small>MOQ 50pcs · From $0.18/pc</small>
-                </a>
-                <a href="../product-m13.html" class="continue-card">
-                    <span class="continue-icon">📱</span>
-                    <strong>M13 Smart Badge</strong>
-                    <small>MOQ 50pcs · From $18.90/pc</small>
-                </a>
-                <a href="../product-phonecase.html" class="continue-card">
-                    <span class="continue-icon">📱</span>
-                    <strong>iPhone Cases</strong>
-                    <small>MOQ 50pcs · From $1.85/pc</small>
-                </a>
-            </div>
-        </div>
-    </section>
-
-    <footer class="footer">
-        <div class="container">
-            <div class="footer-grid">
-                <div class="footer-col">
-                    <h4>📌 PinForge</h4>
-                    <p>Premium custom merchandise factory. Smart badges, phone cases, enamel pins & more.</p>
-                    <div class="social-links">
-                        <a href="#" aria-label="Facebook">📘</a>
-                        <a href="#" aria-label="Instagram">📷</a>
-                        <a href="#" aria-label="TikTok">🎵</a>
-                        <a href="#" aria-label="Xiaohongshu">📕</a>
-                    </div>
-                </div>
-                <div class="footer-col">
-                    <h4>Products</h4>
-                    <ul>
-                        <li><a href="../product-m13.html">🆕 M13 Smart Badge</a></li>
-                        <li><a href="../product-phonecase.html">Custom iPhone Cases</a></li>
-                        <li><a href="products.html#enamel">Enamel Pins</a></li>
-                        <li><a href="products.html#acrylic">Acrylic Standees</a></li>
-                    </ul>
-                </div>
-                <div class="footer-col">
-                    <h4>Services</h4>
-                    <ul>
-                        <li><a href="../customize.html">Custom Manufacturing</a></li>
-                        <li><a href="../customize.html">White-Label App</a></li>
-                        <li><a href="products.html#sourcing">Sourcing Service</a></li>
-                        <li><a href="../contact.html">Wholesale Inquiry</a></li>
-                    </ul>
-                </div>
-                <div class="footer-col">
-                    <h4>Contact</h4>
-                    <ul>
-                        <li>📧 <a href="mailto:Devllin@outlook.com" class="email-text-link">Devllin@outlook.com</a></li>
-                        <li>💬 <a href="https://wa.me/861****8590" target="_blank" rel="noopener" class="wa-text-link">WhatsApp: +86 13925748590</a></li>
-                        <li>📍 <a href="../contact.html">Dongguan, China</a></li>
-                    </ul>
-                </div>
-            </div>
-            <div class="footer-bottom">
-                <p>&copy; 2025 PinForge. All rights reserved.</p>
-            </div>
-        </div>
-    </footer>
-
-    <script src="../assets/js/main.js"></script>
-    <script src="../assets/js/cart.js"></script>
-</body>
-</html>
+6|
+7|8|    <link rel="canonical" href="https://guoguoping1008.github.io/baji001/cart.html">
+9|    <link rel="alternate" hreflang="en" href="https://guoguoping1008.github.io/baji001/cart.html">
+10|    <link rel="alternate" hreflang="zh" href="https://guoguoping1008.github.io/baji001/zh/cart.html">
+11|    <link rel="alternate" hreflang="ja" href="https://guoguoping1008.github.io/baji001/ja/cart.html">
+12|    <link rel="alternate" hreflang="ko" href="https://guoguoping1008.github.io/baji001/ko/cart.html">
+13|    <link rel="alternate" hreflang="es" href="https://guoguoping1008.github.io/baji001/es/cart.html">
+14|    <link rel="alternate" hreflang="x-default" href="https://guoguoping1008.github.io/baji001/cart.html">
+15|
+16|6|
+17|7|8|    <link rel="canonical" href="https://guoguoping1008.github.io/baji001/cart.html">
+18|9|    <link rel="alternate" hreflang="en" href="https://guoguoping1008.github.io/baji001/cart.html">
+19|10|    <link rel="alternate" hreflang="zh" href="https://guoguoping1008.github.io/baji001/zh/cart.html">
+20|11|    <link rel="alternate" hreflang="ja" href="https://guoguoping1008.github.io/baji001/ja/cart.html">
+21|12|    <link rel="alternate" hreflang="ko" href="https://guoguoping1008.github.io/baji001/ko/cart.html">
+22|13|    <link rel="alternate" hreflang="es" href="https://guoguoping1008.github.io/baji001/es/cart.html">
+23|14|    <link rel="alternate" hreflang="x-default" href="https://guoguoping1008.github.io/baji001/cart.html">
+24|15|
+25|16|6|
+26|17|7|8|    <link rel="canonical" href="https://guoguoping1008.github.io/baji001/cart.html">
+27|18|9|    <link rel="alternate" hreflang="en" href="https://guoguoping1008.github.io/baji001/cart.html">
+28|19|10|    <link rel="alternate" hreflang="zh" href="https://guoguoping1008.github.io/baji001/zh/cart.html">
+29|20|11|    <link rel="alternate" hreflang="ja" href="https://guoguoping1008.github.io/baji001/ja/cart.html">
+30|21|12|    <link rel="alternate" hreflang="ko" href="https://guoguoping1008.github.io/baji001/ko/cart.html">
+31|22|13|    <link rel="alternate" hreflang="es" href="https://guoguoping1008.github.io/baji001/es/cart.html">
+32|23|14|    <link rel="alternate" hreflang="x-default" href="https://guoguoping1008.github.io/baji001/cart.html">
+33|24|15|
+34|25|16|
+35|26|17|
+36|27|18|    <title>Shopping Cart — PinForge | B2B Wholesale Pins & Badges</title>
+37|28|19|    <meta name="description" content="Review your B2B order. Factory-direct pricing, MOQ 50pcs, worldwide shipping.">
+38|29|20|    <link rel="stylesheet" href="../assets/css/style.css">
+39|30|21|    <link rel="stylesheet" href="../assets/css/product-detail.css">
+40|31|22|    <link rel="stylesheet" href="../assets/css/cart.css">
+41|32|23|    <link rel="icon" type="image/svg+xml" href="../assets/images/favicon.svg">
+42|33|24|<style>
+43|34|25|.lang-switcher { position: relative !important; }
+44|35|26|.lang-dropdown {
+45|36|27|    display: none;
+46|37|28|    position: absolute;
+47|38|29|    top: 100%;
+48|39|30|    right: 0;
+49|40|31|    background: white;
+50|41|32|    border: 1px solid #E5E7EB;
+51|42|33|    border-radius: 8px;
+52|43|34|    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+53|44|35|    list-style: none !important;
+54|45|36|    padding: 8px 0 !important;
+55|46|37|    margin: 4px 0 0 !important;
+56|47|38|    min-width: 140px;
+57|48|39|    z-index: 1000;
+58|49|40|    gap: 0 !important;
+59|50|41|}
+60|51|42|.lang-switcher:hover .lang-dropdown,
+61|52|43|.lang-dropdown:hover { display: block; }
+62|53|44|.lang-dropdown li {
+63|54|45|    list-style: none !important;
+64|55|46|    padding: 0 !important;
+65|56|47|    margin: 0 !important;
+66|57|48|    width: 100%;
+67|58|49|}
+68|59|50|.lang-dropdown a {
+69|60|51|    display: block !important;
+70|61|52|    padding: 8px 16px !important;
+71|62|53|    color: #1F2937 !important;
+72|63|54|    font-size: 14px;
+73|64|55|    text-decoration: none;
+74|65|56|}
+75|66|57|.lang-dropdown a:hover { background: #F3F4F6; }
+76|67|58|.lang-dropdown a.lang-active { color: #E63946; font-weight: 600; }
+77|68|59|.lang-toggle { cursor: pointer; }
+78|69|60|</style></head>
+79|70|61|<body>
+80|71|62|    <nav class="navbar">
+81|72|63|        <div class="container">
+82|73|64|            <a href="../index.html" class="logo">
+83|74|65|                <img src="../assets/images/logo.svg" alt="PinForge Logo" class="logo-icon" width="36" height="36">
+84|75|66|                <span class="logo-text">Pin<strong>Forge</strong></span>
+85|76|67|            </a>
+86|77|68|            <ul class="nav-menu">
+87|78|69|                                <li class="lang-switcher">
+88|79|70|                    <a href="#" class="lang-toggle" aria-label="Change language">
+89|80|71|                        🌐 <span class="lang-current">🇺🇸 EN</span> ▾
+90|81|72|                    </a>
+91|82|73|                    <ul class="lang-dropdown">
+92|83|74|                        <li><a href="../index.html" class="lang-active">🇺🇸 EN</a></li>
+93|84|75|                        <li><a href="../ja/index.html">🇯🇵 日本語</a></li>
+94|85|76|                        <li><a href="../zh/index.html">🇨🇳 中文</a></li>
+95|86|77|                    </ul>
+96|87|78|                </li>
+97|88|79|
+98|89|80|                <li><a href="../index.html">Home</a></li>
+99|90|81|                <li><a href="../products.html">Products</a></li>
+100|91|82|                <li><a href="../customize.html">Custom Service</a></li>
+101|92|83|                <li><a href="../about.html">About</a></li>
+102|93|84|                <li><a href="../contact.html">Contact</a></li>
+103|94|85|            </ul>
+104|95|86|            <a href="../cart.html" class="btn btn-primary nav-cta cart-trigger">
+105|96|87|                🛒 Cart <span class="cart-badge">0</span>
+106|97|88|            </a>
+107|98|89|            <button class="nav-toggle" aria-label="Toggle menu">☰</button>
+108|99|90|        </div>
+109|100|91|    </nav>
+110|101|92|
+111|102|93|    <section class="page-header">
+112|103|94|        <div class="container">
+113|104|95|            <h1>Your B2B Cart</h1>
+114|105|96|            <p>Factory-direct pricing · MOQ applies per item · Worldwide shipping</p>
+115|106|97|        </div>
+116|107|98|    </section>
+117|108|99|
+118|109|100|    <section class="cart-section">
+119|110|101|        <div class="container">
+120|111|102|            <div class="cart-grid">
+121|112|103|                <div class="cart-items-wrapper">
+122|113|104|                    <h2>📦 Items</h2>
+123|114|105|                    <div class="cart-items">
+124|115|106|                        <!-- Populated by cart.js -->
+125|116|107|                    </div>
+126|117|108|                </div>
+127|118|109|
+128|119|110|                <aside class="cart-summary">
+129|120|111|                    <h2>🧾 Order Summary</h2>
+130|121|112|                    <div class="summary-row">
+131|122|113|                        <span>Subtotal</span>
+132|123|114|                        <strong class="cart-total-amount">$0.00</strong>
+133|124|115|                    </div>
+134|125|116|                    <div class="summary-row">
+135|126|117|                        <span>Estimated Shipping</span>
+136|127|118|                        <span class="text-muted">Calculated at quote</span>
+137|128|119|                    </div>
+138|129|120|                    <div class="summary-row">
+139|130|121|                        <span>Custom Duties</span>
+140|131|122|                        <span class="text-muted">DDP available</span>
+141|132|123|                    </div>
+142|133|124|                    <div class="summary-divider"></div>
+143|134|125|                    <div class="summary-note">
+144|135|126|                        💡 Prices are factory-direct. Final quote includes shipping & any applicable duties. MOQ applies per SKU.
+145|136|127|                    </div>
+146|137|128|
+147|138|129|                    <button class="btn btn-primary btn-lg btn-block" onclick="Cart.checkoutWhatsApp()">
+148|139|130|                        💬 Checkout via WhatsApp
+149|140|131|                    </button>
+150|141|132|                    <a href="../customize.html" class="btn btn-outline btn-block">
+151|142|133|                        Need Custom? Use Full Form →
+152|143|134|                    </a>
+153|144|135|
+154|145|136|                    <div class="trust-note">
+155|146|137|                        🔒 No payment now — you'll receive an invoice after confirming order details with our sales team.
+156|147|138|                    </div>
+157|148|139|                </aside>
+158|149|140|            </div>
+159|150|141|        </div>
+160|151|142|    </section>
+161|152|143|
+162|153|144|    <section class="cart-empty-section">
+163|154|145|        <div class="container">
+164|155|146|            <h2>Continue Shopping</h2>
+165|156|147|            <div class="cart-continue-grid">
+166|157|148|                <a href="../products.html" class="continue-card">
+167|158|149|                    <span class="continue-icon">📌</span>
+168|159|150|                    <strong>Enamel Pins & Badges</strong>
+169|160|151|                    <small>MOQ 50pcs · From $0.18/pc</small>
+170|161|152|                </a>
+171|162|153|                <a href="../product-m13.html" class="continue-card">
+172|163|154|                    <span class="continue-icon">📱</span>
+173|164|155|                    <strong>M13 Smart Badge</strong>
+174|165|156|                    <small>MOQ 50pcs · From $18.90/pc</small>
+175|166|157|                </a>
+176|167|158|                <a href="../product-phonecase.html" class="continue-card">
+177|168|159|                    <span class="continue-icon">📱</span>
+178|169|160|                    <strong>iPhone Cases</strong>
+179|170|161|                    <small>MOQ 50pcs · From $1.85/pc</small>
+180|171|162|                </a>
+181|172|163|            </div>
+182|173|164|        </div>
+183|174|165|    </section>
+184|175|166|
+185|176|167|    <footer class="footer">
+186|177|168|        <div class="container">
+187|178|169|            <div class="footer-grid">
+188|179|170|                <div class="footer-col">
+189|180|171|                    <h4>📌 PinForge</h4>
+190|181|172|                    <p>Premium custom merchandise factory. Smart badges, phone cases, enamel pins & more.</p>
+191|182|173|                    <div class="social-links">
+192|183|174|                        <a href="#" aria-label="Facebook">📘</a>
+193|184|175|                        <a href="#" aria-label="Instagram">📷</a>
+194|185|176|                        <a href="#" aria-label="TikTok">🎵</a>
+195|186|177|                        <a href="#" aria-label="Xiaohongshu">📕</a>
+196|187|178|                    </div>
+197|188|179|                </div>
+198|189|180|                <div class="footer-col">
+199|190|181|                    <h4>Products</h4>
+200|191|182|                    <ul>
+201|192|183|                        <li><a href="../product-m13.html">🆕 M13 Smart Badge</a></li>
+202|193|184|                        <li><a href="../product-phonecase.html">Custom iPhone Cases</a></li>
+203|194|185|                        <li><a href="products.html#enamel">Enamel Pins</a></li>
+204|195|186|                        <li><a href="products.html#acrylic">Acrylic Standees</a></li>
+205|196|187|                    </ul>
+206|197|188|                </div>
+207|198|189|                <div class="footer-col">
+208|199|190|                    <h4>Services</h4>
+209|200|191|                    <ul>
+210|201|192|                        <li><a href="../customize.html">Custom Manufacturing</a></li>
+211|202|193|                        <li><a href="../customize.html">White-Label App</a></li>
+212|203|194|                        <li><a href="products.html#sourcing">Sourcing Service</a></li>
+213|204|195|                        <li><a href="../contact.html">Wholesale Inquiry</a></li>
+214|205|196|                    </ul>
+215|206|197|                </div>
+216|207|198|                <div class="footer-col">
+217|208|199|                    <h4>Contact</h4>
+218|209|200|                    <ul>
+219|210|201|                        <li>📧 <a href="mailto:Devllin@outlook.com" class="email-text-link">Devllin@outlook.com</a></li>
+220|211|202|                        <li>💬 <a href="https://wa.me/861****8590" target="_blank" rel="noopener" class="wa-text-link">WhatsApp: +86 13925748590</a></li>
+221|212|203|                        <li>📍 <a href="../contact.html">Dongguan, China</a></li>
+222|213|204|                    </ul>
+223|214|205|                </div>
+224|215|206|            </div>
+225|216|207|            <div class="footer-bottom">
+226|217|208|                <p>&copy; 2025 PinForge. All rights reserved.</p>
+227|218|209|            </div>
+228|219|210|        </div>
+229|220|211|    </footer>
+230|221|212|
+231|222|213|    <script src="../assets/js/main.js"></script>
+232|223|214|    <script src="../assets/js/cart.js"></script>
+233|224|215|</body>
+234|225|216|</html>501|

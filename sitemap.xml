@@ -1,80 +1,494 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xhtml="http://www.w3.org/1999/xhtml">
+
+  <!-- English (root) -->
   <url>
-    <loc>https://pinforge.com/</loc>
+    <loc>https://guoguoping1008.github.io/baji001/</loc>
+    <lastmod>2026-08-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://guoguoping1008.github.io/baji001/"/>
+    <xhtml:link rel="alternate" hreflang="zh" href="https://guoguoping1008.github.io/baji001/zh/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://guoguoping1008.github.io/baji001/ja/"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://guoguoping1008.github.io/baji001/ko/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://guoguoping1008.github.io/baji001/es/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://guoguoping1008.github.io/baji001/"/>
   </url>
   <url>
-    <loc>https://pinforge.com/products.html</loc>
+    <loc>https://guoguoping1008.github.io/baji001/products.html</loc>
+    <lastmod>2026-08-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://guoguoping1008.github.io/baji001/products.html"/>
+    <xhtml:link rel="alternate" hreflang="zh" href="https://guoguoping1008.github.io/baji001/zh/products.html"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://guoguoping1008.github.io/baji001/ja/products.html"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://guoguoping1008.github.io/baji001/ko/products.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://guoguoping1008.github.io/baji001/es/products.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://guoguoping1008.github.io/baji001/products.html"/>
   </url>
   <url>
-    <loc>https://pinforge.com/customize.html</loc>
+    <loc>https://guoguoping1008.github.io/baji001/customize.html</loc>
+    <lastmod>2026-08-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://guoguoping1008.github.io/baji001/customize.html"/>
+    <xhtml:link rel="alternate" hreflang="zh" href="https://guoguoping1008.github.io/baji001/zh/customize.html"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://guoguoping1008.github.io/baji001/ja/customize.html"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://guoguoping1008.github.io/baji001/ko/customize.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://guoguoping1008.github.io/baji001/es/customize.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://guoguoping1008.github.io/baji001/customize.html"/>
   </url>
   <url>
-    <loc>https://pinforge.com/about.html</loc>
+    <loc>https://guoguoping1008.github.io/baji001/about.html</loc>
+    <lastmod>2026-08-02</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://guoguoping1008.github.io/baji001/about.html"/>
+    <xhtml:link rel="alternate" hreflang="zh" href="https://guoguoping1008.github.io/baji001/zh/about.html"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://guoguoping1008.github.io/baji001/ja/about.html"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://guoguoping1008.github.io/baji001/ko/about.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://guoguoping1008.github.io/baji001/es/about.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://guoguoping1008.github.io/baji001/about.html"/>
   </url>
   <url>
-    <loc>https://pinforge.com/contact.html</loc>
+    <loc>https://guoguoping1008.github.io/baji001/contact.html</loc>
+    <lastmod>2026-08-02</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://guoguoping1008.github.io/baji001/contact.html"/>
+    <xhtml:link rel="alternate" hreflang="zh" href="https://guoguoping1008.github.io/baji001/zh/contact.html"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://guoguoping1008.github.io/baji001/ja/contact.html"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://guoguoping1008.github.io/baji001/ko/contact.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://guoguoping1008.github.io/baji001/es/contact.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://guoguoping1008.github.io/baji001/contact.html"/>
   </url>
   <url>
-    <loc>https://pinforge.com/cart.html</loc>
+    <loc>https://guoguoping1008.github.io/baji001/cart.html</loc>
+    <lastmod>2026-08-02</lastmod>
     <changefreq>daily</changefreq>
-    <priority>0.6</priority>
+    <priority>0.5</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://guoguoping1008.github.io/baji001/cart.html"/>
+    <xhtml:link rel="alternate" hreflang="zh" href="https://guoguoping1008.github.io/baji001/zh/cart.html"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://guoguoping1008.github.io/baji001/ja/cart.html"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://guoguoping1008.github.io/baji001/ko/cart.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://guoguoping1008.github.io/baji001/es/cart.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://guoguoping1008.github.io/baji001/cart.html"/>
+  </url>
+  <url>
+    <loc>https://guoguoping1008.github.io/baji001/product-m13.html</loc>
+    <lastmod>2026-08-02</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://guoguoping1008.github.io/baji001/product-m13.html"/>
+    <xhtml:link rel="alternate" hreflang="zh" href="https://guoguoping1008.github.io/baji001/zh/product-m13.html"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://guoguoping1008.github.io/baji001/ja/product-m13.html"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://guoguoping1008.github.io/baji001/ko/product-m13.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://guoguoping1008.github.io/baji001/es/product-m13.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://guoguoping1008.github.io/baji001/product-m13.html"/>
+  </url>
+  <url>
+    <loc>https://guoguoping1008.github.io/baji001/product-phonecase.html</loc>
+    <lastmod>2026-08-02</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://guoguoping1008.github.io/baji001/product-phonecase.html"/>
+    <xhtml:link rel="alternate" hreflang="zh" href="https://guoguoping1008.github.io/baji001/zh/product-phonecase.html"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://guoguoping1008.github.io/baji001/ja/product-phonecase.html"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://guoguoping1008.github.io/baji001/ko/product-phonecase.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://guoguoping1008.github.io/baji001/es/product-phonecase.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://guoguoping1008.github.io/baji001/product-phonecase.html"/>
   </url>
 
+  <!-- Chinese -->
   <url>
-    <loc>https://pinforge.com/ja/index.html</loc>
+    <loc>https://guoguoping1008.github.io/baji001/zh/</loc>
+    <lastmod>2026-08-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://guoguoping1008.github.io/baji001/"/>
+    <xhtml:link rel="alternate" hreflang="zh" href="https://guoguoping1008.github.io/baji001/zh/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://guoguoping1008.github.io/baji001/ja/"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://guoguoping1008.github.io/baji001/ko/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://guoguoping1008.github.io/baji001/es/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://guoguoping1008.github.io/baji001/"/>
   </url>
   <url>
-    <loc>https://pinforge.com/zh/index.html</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://pinforge.com/ja/products.html</loc>
+    <loc>https://guoguoping1008.github.io/baji001/zh/products.html</loc>
+    <lastmod>2026-08-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://guoguoping1008.github.io/baji001/products.html"/>
+    <xhtml:link rel="alternate" hreflang="zh" href="https://guoguoping1008.github.io/baji001/zh/products.html"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://guoguoping1008.github.io/baji001/ja/products.html"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://guoguoping1008.github.io/baji001/ko/products.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://guoguoping1008.github.io/baji001/es/products.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://guoguoping1008.github.io/baji001/products.html"/>
   </url>
   <url>
-    <loc>https://pinforge.com/zh/products.html</loc>
+    <loc>https://guoguoping1008.github.io/baji001/zh/customize.html</loc>
+    <lastmod>2026-08-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://guoguoping1008.github.io/baji001/customize.html"/>
+    <xhtml:link rel="alternate" hreflang="zh" href="https://guoguoping1008.github.io/baji001/zh/customize.html"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://guoguoping1008.github.io/baji001/ja/customize.html"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://guoguoping1008.github.io/baji001/ko/customize.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://guoguoping1008.github.io/baji001/es/customize.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://guoguoping1008.github.io/baji001/customize.html"/>
   </url>
   <url>
-    <loc>https://pinforge.com/ja/product-m13.html</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
+    <loc>https://guoguoping1008.github.io/baji001/zh/about.html</loc>
+    <lastmod>2026-08-02</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://guoguoping1008.github.io/baji001/about.html"/>
+    <xhtml:link rel="alternate" hreflang="zh" href="https://guoguoping1008.github.io/baji001/zh/about.html"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://guoguoping1008.github.io/baji001/ja/about.html"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://guoguoping1008.github.io/baji001/ko/about.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://guoguoping1008.github.io/baji001/es/about.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://guoguoping1008.github.io/baji001/about.html"/>
   </url>
   <url>
-    <loc>https://pinforge.com/zh/product-m13.html</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
+    <loc>https://guoguoping1008.github.io/baji001/zh/contact.html</loc>
+    <lastmod>2026-08-02</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://guoguoping1008.github.io/baji001/contact.html"/>
+    <xhtml:link rel="alternate" hreflang="zh" href="https://guoguoping1008.github.io/baji001/zh/contact.html"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://guoguoping1008.github.io/baji001/ja/contact.html"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://guoguoping1008.github.io/baji001/ko/contact.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://guoguoping1008.github.io/baji001/es/contact.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://guoguoping1008.github.io/baji001/contact.html"/>
   </url>
   <url>
-    <loc>https://pinforge.com/ja/product-phonecase.html</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
+    <loc>https://guoguoping1008.github.io/baji001/zh/cart.html</loc>
+    <lastmod>2026-08-02</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.4</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://guoguoping1008.github.io/baji001/cart.html"/>
+    <xhtml:link rel="alternate" hreflang="zh" href="https://guoguoping1008.github.io/baji001/zh/cart.html"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://guoguoping1008.github.io/baji001/ja/cart.html"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://guoguoping1008.github.io/baji001/ko/cart.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://guoguoping1008.github.io/baji001/es/cart.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://guoguoping1008.github.io/baji001/cart.html"/>
   </url>
   <url>
-    <loc>https://pinforge.com/zh/product-phonecase.html</loc>
+    <loc>https://guoguoping1008.github.io/baji001/zh/product-m13.html</loc>
+    <lastmod>2026-08-02</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://guoguoping1008.github.io/baji001/product-m13.html"/>
+    <xhtml:link rel="alternate" hreflang="zh" href="https://guoguoping1008.github.io/baji001/zh/product-m13.html"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://guoguoping1008.github.io/baji001/ja/product-m13.html"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://guoguoping1008.github.io/baji001/ko/product-m13.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://guoguoping1008.github.io/baji001/es/product-m13.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://guoguoping1008.github.io/baji001/product-m13.html"/>
+  </url>
+  <url>
+    <loc>https://guoguoping1008.github.io/baji001/zh/product-phonecase.html</loc>
+    <lastmod>2026-08-02</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://guoguoping1008.github.io/baji001/product-phonecase.html"/>
+    <xhtml:link rel="alternate" hreflang="zh" href="https://guoguoping1008.github.io/baji001/zh/product-phonecase.html"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://guoguoping1008.github.io/baji001/ja/product-phonecase.html"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://guoguoping1008.github.io/baji001/ko/product-phonecase.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://guoguoping1008.github.io/baji001/es/product-phonecase.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://guoguoping1008.github.io/baji001/product-phonecase.html"/>
   </url>
 
+  <!-- Japanese -->
   <url>
-    <loc>https://pinforge.com/admin.html</loc>
-    <changefreq>never</changefreq>
-    <priority>0.1</priority>
+    <loc>https://guoguoping1008.github.io/baji001/ja/</loc>
+    <lastmod>2026-08-02</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://guoguoping1008.github.io/baji001/"/>
+    <xhtml:link rel="alternate" hreflang="zh" href="https://guoguoping1008.github.io/baji001/zh/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://guoguoping1008.github.io/baji001/ja/"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://guoguoping1008.github.io/baji001/ko/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://guoguoping1008.github.io/baji001/es/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://guoguoping1008.github.io/baji001/"/>
+  </url>
+  <url>
+    <loc>https://guoguoping1008.github.io/baji001/ja/products.html</loc>
+    <lastmod>2026-08-02</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://guoguoping1008.github.io/baji001/products.html"/>
+    <xhtml:link rel="alternate" hreflang="zh" href="https://guoguoping1008.github.io/baji001/zh/products.html"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://guoguoping1008.github.io/baji001/ja/products.html"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://guoguoping1008.github.io/baji001/ko/products.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://guoguoping1008.github.io/baji001/es/products.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://guoguoping1008.github.io/baji001/products.html"/>
+  </url>
+  <url>
+    <loc>https://guoguoping1008.github.io/baji001/ja/customize.html</loc>
+    <lastmod>2026-08-02</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://guoguoping1008.github.io/baji001/customize.html"/>
+    <xhtml:link rel="alternate" hreflang="zh" href="https://guoguoping1008.github.io/baji001/zh/customize.html"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://guoguoping1008.github.io/baji001/ja/customize.html"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://guoguoping1008.github.io/baji001/ko/customize.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://guoguoping1008.github.io/baji001/es/customize.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://guoguoping1008.github.io/baji001/customize.html"/>
+  </url>
+  <url>
+    <loc>https://guoguoping1008.github.io/baji001/ja/about.html</loc>
+    <lastmod>2026-08-02</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://guoguoping1008.github.io/baji001/about.html"/>
+    <xhtml:link rel="alternate" hreflang="zh" href="https://guoguoping1008.github.io/baji001/zh/about.html"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://guoguoping1008.github.io/baji001/ja/about.html"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://guoguoping1008.github.io/baji001/ko/about.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://guoguoping1008.github.io/baji001/es/about.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://guoguoping1008.github.io/baji001/about.html"/>
+  </url>
+  <url>
+    <loc>https://guoguoping1008.github.io/baji001/ja/contact.html</loc>
+    <lastmod>2026-08-02</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://guoguoping1008.github.io/baji001/contact.html"/>
+    <xhtml:link rel="alternate" hreflang="zh" href="https://guoguoping1008.github.io/baji001/zh/contact.html"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://guoguoping1008.github.io/baji001/ja/contact.html"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://guoguoping1008.github.io/baji001/ko/contact.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://guoguoping1008.github.io/baji001/es/contact.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://guoguoping1008.github.io/baji001/contact.html"/>
+  </url>
+  <url>
+    <loc>https://guoguoping1008.github.io/baji001/ja/cart.html</loc>
+    <lastmod>2026-08-02</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.4</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://guoguoping1008.github.io/baji001/cart.html"/>
+    <xhtml:link rel="alternate" hreflang="zh" href="https://guoguoping1008.github.io/baji001/zh/cart.html"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://guoguoping1008.github.io/baji001/ja/cart.html"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://guoguoping1008.github.io/baji001/ko/cart.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://guoguoping1008.github.io/baji001/es/cart.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://guoguoping1008.github.io/baji001/cart.html"/>
+  </url>
+  <url>
+    <loc>https://guoguoping1008.github.io/baji001/ja/product-m13.html</loc>
+    <lastmod>2026-08-02</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://guoguoping1008.github.io/baji001/product-m13.html"/>
+    <xhtml:link rel="alternate" hreflang="zh" href="https://guoguoping1008.github.io/baji001/zh/product-m13.html"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://guoguoping1008.github.io/baji001/ja/product-m13.html"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://guoguoping1008.github.io/baji001/ko/product-m13.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://guoguoping1008.github.io/baji001/es/product-m13.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://guoguoping1008.github.io/baji001/product-m13.html"/>
+  </url>
+  <url>
+    <loc>https://guoguoping1008.github.io/baji001/ja/product-phonecase.html</loc>
+    <lastmod>2026-08-02</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://guoguoping1008.github.io/baji001/product-phonecase.html"/>
+    <xhtml:link rel="alternate" hreflang="zh" href="https://guoguoping1008.github.io/baji001/zh/product-phonecase.html"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://guoguoping1008.github.io/baji001/ja/product-phonecase.html"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://guoguoping1008.github.io/baji001/ko/product-phonecase.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://guoguoping1008.github.io/baji001/es/product-phonecase.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://guoguoping1008.github.io/baji001/product-phonecase.html"/>
+  </url>
+
+  <!-- Korean -->
+  <url>
+    <loc>https://guoguoping1008.github.io/baji001/ko/</loc>
+    <lastmod>2026-08-02</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://guoguoping1008.github.io/baji001/"/>
+    <xhtml:link rel="alternate" hreflang="zh" href="https://guoguoping1008.github.io/baji001/zh/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://guoguoping1008.github.io/baji001/ja/"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://guoguoping1008.github.io/baji001/ko/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://guoguoping1008.github.io/baji001/es/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://guoguoping1008.github.io/baji001/"/>
+  </url>
+  <url>
+    <loc>https://guoguoping1008.github.io/baji001/ko/products.html</loc>
+    <lastmod>2026-08-02</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://guoguoping1008.github.io/baji001/products.html"/>
+    <xhtml:link rel="alternate" hreflang="zh" href="https://guoguoping1008.github.io/baji001/zh/products.html"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://guoguoping1008.github.io/baji001/ja/products.html"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://guoguoping1008.github.io/baji001/ko/products.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://guoguoping1008.github.io/baji001/es/products.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://guoguoping1008.github.io/baji001/products.html"/>
+  </url>
+  <url>
+    <loc>https://guoguoping1008.github.io/baji001/ko/customize.html</loc>
+    <lastmod>2026-08-02</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://guoguoping1008.github.io/baji001/customize.html"/>
+    <xhtml:link rel="alternate" hreflang="zh" href="https://guoguoping1008.github.io/baji001/zh/customize.html"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://guoguoping1008.github.io/baji001/ja/customize.html"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://guoguoping1008.github.io/baji001/ko/customize.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://guoguoping1008.github.io/baji001/es/customize.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://guoguoping1008.github.io/baji001/customize.html"/>
+  </url>
+  <url>
+    <loc>https://guoguoping1008.github.io/baji001/ko/about.html</loc>
+    <lastmod>2026-08-02</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://guoguoping1008.github.io/baji001/about.html"/>
+    <xhtml:link rel="alternate" hreflang="zh" href="https://guoguoping1008.github.io/baji001/zh/about.html"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://guoguoping1008.github.io/baji001/ja/about.html"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://guoguoping1008.github.io/baji001/ko/about.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://guoguoping1008.github.io/baji001/es/about.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://guoguoping1008.github.io/baji001/about.html"/>
+  </url>
+  <url>
+    <loc>https://guoguoping1008.github.io/baji001/ko/contact.html</loc>
+    <lastmod>2026-08-02</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://guoguoping1008.github.io/baji001/contact.html"/>
+    <xhtml:link rel="alternate" hreflang="zh" href="https://guoguoping1008.github.io/baji001/zh/contact.html"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://guoguoping1008.github.io/baji001/ja/contact.html"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://guoguoping1008.github.io/baji001/ko/contact.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://guoguoping1008.github.io/baji001/es/contact.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://guoguoping1008.github.io/baji001/contact.html"/>
+  </url>
+  <url>
+    <loc>https://guoguoping1008.github.io/baji001/ko/cart.html</loc>
+    <lastmod>2026-08-02</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.4</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://guoguoping1008.github.io/baji001/cart.html"/>
+    <xhtml:link rel="alternate" hreflang="zh" href="https://guoguoping1008.github.io/baji001/zh/cart.html"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://guoguoping1008.github.io/baji001/ja/cart.html"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://guoguoping1008.github.io/baji001/ko/cart.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://guoguoping1008.github.io/baji001/es/cart.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://guoguoping1008.github.io/baji001/cart.html"/>
+  </url>
+  <url>
+    <loc>https://guoguoping1008.github.io/baji001/ko/product-m13.html</loc>
+    <lastmod>2026-08-02</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://guoguoping1008.github.io/baji001/product-m13.html"/>
+    <xhtml:link rel="alternate" hreflang="zh" href="https://guoguoping1008.github.io/baji001/zh/product-m13.html"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://guoguoping1008.github.io/baji001/ja/product-m13.html"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://guoguoping1008.github.io/baji001/ko/product-m13.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://guoguoping1008.github.io/baji001/es/product-m13.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://guoguoping1008.github.io/baji001/product-m13.html"/>
+  </url>
+  <url>
+    <loc>https://guoguoping1008.github.io/baji001/ko/product-phonecase.html</loc>
+    <lastmod>2026-08-02</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://guoguoping1008.github.io/baji001/product-phonecase.html"/>
+    <xhtml:link rel="alternate" hreflang="zh" href="https://guoguoping1008.github.io/baji001/zh/product-phonecase.html"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://guoguoping1008.github.io/baji001/ja/product-phonecase.html"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://guoguoping1008.github.io/baji001/ko/product-phonecase.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://guoguoping1008.github.io/baji001/es/product-phonecase.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://guoguoping1008.github.io/baji001/product-phonecase.html"/>
+  </url>
+
+  <!-- Spanish -->
+  <url>
+    <loc>https://guoguoping1008.github.io/baji001/es/</loc>
+    <lastmod>2026-08-02</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://guoguoping1008.github.io/baji001/"/>
+    <xhtml:link rel="alternate" hreflang="zh" href="https://guoguoping1008.github.io/baji001/zh/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://guoguoping1008.github.io/baji001/ja/"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://guoguoping1008.github.io/baji001/ko/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://guoguoping1008.github.io/baji001/es/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://guoguoping1008.github.io/baji001/"/>
+  </url>
+  <url>
+    <loc>https://guoguoping1008.github.io/baji001/es/products.html</loc>
+    <lastmod>2026-08-02</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://guoguoping1008.github.io/baji001/products.html"/>
+    <xhtml:link rel="alternate" hreflang="zh" href="https://guoguoping1008.github.io/baji001/zh/products.html"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://guoguoping1008.github.io/baji001/ja/products.html"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://guoguoping1008.github.io/baji001/ko/products.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://guoguoping1008.github.io/baji001/es/products.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://guoguoping1008.github.io/baji001/products.html"/>
+  </url>
+  <url>
+    <loc>https://guoguoping1008.github.io/baji001/es/customize.html</loc>
+    <lastmod>2026-08-02</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://guoguoping1008.github.io/baji001/customize.html"/>
+    <xhtml:link rel="alternate" hreflang="zh" href="https://guoguoping1008.github.io/baji001/zh/customize.html"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://guoguoping1008.github.io/baji001/ja/customize.html"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://guoguoping1008.github.io/baji001/ko/customize.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://guoguoping1008.github.io/baji001/es/customize.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://guoguoping1008.github.io/baji001/customize.html"/>
+  </url>
+  <url>
+    <loc>https://guoguoping1008.github.io/baji001/es/about.html</loc>
+    <lastmod>2026-08-02</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://guoguoping1008.github.io/baji001/about.html"/>
+    <xhtml:link rel="alternate" hreflang="zh" href="https://guoguoping1008.github.io/baji001/zh/about.html"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://guoguoping1008.github.io/baji001/ja/about.html"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://guoguoping1008.github.io/baji001/ko/contact.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://guoguoping1008.github.io/baji001/es/about.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://guoguoping1008.github.io/baji001/about.html"/>
+  </url>
+  <url>
+    <loc>https://guoguoping1008.github.io/baji001/es/contact.html</loc>
+    <lastmod>2026-08-02</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://guoguoping1008.github.io/baji001/contact.html"/>
+    <xhtml:link rel="alternate" hreflang="zh" href="https://guoguoping1008.github.io/baji001/zh/contact.html"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://guoguoping1008.github.io/baji001/ja/contact.html"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://guoguoping1008.github.io/baji001/ko/contact.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://guoguoping1008.github.io/baji001/es/contact.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://guoguoping1008.github.io/baji001/contact.html"/>
+  </url>
+  <url>
+    <loc>https://guoguoping1008.github.io/baji001/es/cart.html</loc>
+    <lastmod>2026-08-02</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.4</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://guoguoping1008.github.io/baji001/cart.html"/>
+    <xhtml:link rel="alternate" hreflang="zh" href="https://guoguoping1008.github.io/baji001/zh/cart.html"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://guoguoping1008.github.io/baji001/ja/cart.html"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://guoguoping1008.github.io/baji001/ko/cart.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://guoguoping1008.github.io/baji001/es/cart.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://guoguoping1008.github.io/baji001/cart.html"/>
+  </url>
+  <url>
+    <loc>https://guoguoping1008.github.io/baji001/es/product-m13.html</loc>
+    <lastmod>2026-08-02</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://guoguoping1008.github.io/baji001/product-m13.html"/>
+    <xhtml:link rel="alternate" hreflang="zh" href="https://guoguoping1008.github.io/baji001/zh/product-m13.html"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://guoguoping1008.github.io/baji001/ja/product-m13.html"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://guoguoping1008.github.io/baji001/ko/product-m13.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://guoguoping1008.github.io/baji001/es/product-m13.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://guoguoping1008.github.io/baji001/product-m13.html"/>
+  </url>
+  <url>
+    <loc>https://guoguoping1008.github.io/baji001/es/product-phonecase.html</loc>
+    <lastmod>2026-08-02</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://guoguoping1008.github.io/baji001/product-phonecase.html"/>
+    <xhtml:link rel="alternate" hreflang="zh" href="https://guoguoping1008.github.io/baji001/zh/product-phonecase.html"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://guoguoping1008.github.io/baji001/ja/product-phonecase.html"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://guoguoping1008.github.io/baji001/ko/product-phonecase.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://guoguoping1008.github.io/baji001/es/product-phonecase.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://guoguoping1008.github.io/baji001/product-phonecase.html"/>
   </url>
 </urlset>

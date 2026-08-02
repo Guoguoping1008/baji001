@@ -1,340 +1,363 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Inquiry Admin — PinForge</title>
-    <meta name="robots" content="noindex, nofollow">
-    <link rel="stylesheet" href="assets/css/style.css">
-    <link rel="stylesheet" href="assets/css/admin.css">
-    <link rel="icon" type="image/svg+xml" href="assets/images/favicon.svg">
-</head>
-<body class="admin-body">
-    <header class="admin-header">
-        <div class="container">
-            <h1>🔒 PinForge Inquiry Admin</h1>
-            <div class="admin-user">
-                <span id="adminLastUpdated" class="text-muted">Not loaded</span>
-                <button id="refreshBtn" class="btn btn-outline btn-sm">↻ Refresh</button>
-            </div>
-        </div>
-    </header>
+1|1|1|<!DOCTYPE html>
+2|2|2|<html lang="en">
+3|3|3|<head>
+4|4|4|    <meta charset="UTF-8">
+5|5|5|    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <main class="container admin-main">
-        <!-- Login Screen -->
-        <div id="loginScreen" class="login-screen">
-            <div class="login-card">
-                <h2>🔐 Admin Login</h2>
-                <p>Enter your admin token to view inquiries.</p>
-                <input type="password" id="adminToken" placeholder="Admin token" class="login-input">
-                <button id="loginBtn" class="btn btn-primary btn-block">Login</button>
-                <p class="login-hint">
-                    💡 Set <code>ADMIN_TOKEN</code> in Cloudflare Pages dashboard env vars.
-                </p>
-            </div>
-        </div>
+    <!-- SEO: canonical + hreflang (5 locales, verified 2026-08-02) -->
+    <link rel="canonical" href="https://guoguoping1008.github.io/baji001/admin.html">
+    <link rel="alternate" hreflang="en" href="https://guoguoping1008.github.io/baji001/admin.html">
+    <link rel="alternate" hreflang="x-default" href="https://guoguoping1008.github.io/baji001/admin.html">
 
-        <!-- Dashboard -->
-        <div id="dashboard" class="dashboard hidden">
-            <!-- Stats -->
-            <section class="stats-grid">
-                <div class="stat-card">
-                    <div class="stat-value" id="statTotal">0</div>
-                    <div class="stat-label">Total Inquiries</div>
-                </div>
-                <div class="stat-card">
-                    <div class="stat-value" id="stat24h">0</div>
-                    <div class="stat-label">Last 24 hours</div>
-                </div>
-                <div class="stat-card">
-                    <div class="stat-value" id="statNew">0</div>
-                    <div class="stat-label">New (unread)</div>
-                </div>
-                <div class="stat-card">
-                    <div class="stat-value" id="statWon">0</div>
-                    <div class="stat-label">Won deals</div>
-                </div>
-            </section>
-
-            <!-- Filters -->
-            <section class="filters">
-                <div class="filter-row">
-                    <input type="search" id="searchInput" placeholder="🔍 Search company, email, country..." class="filter-input">
-                    <select id="statusFilter" class="filter-input">
-                        <option value="">All Statuses</option>
-                        <option value="new">New</option>
-                        <option value="contacted">Contacted</option>
-                        <option value="quoted">Quoted</option>
-                        <option value="won">Won</option>
-                        <option value="lost">Lost</option>
-                    </select>
-                    <select id="productFilter" class="filter-input">
-                        <option value="">All Products</option>
-                    </select>
-                </div>
-            </section>
-
-            <!-- Inquiries Table -->
-            <section class="inquiries-table-wrapper">
-                <table class="inquiries-table">
-                    <thead>
-                        <tr>
-                            <th>Date</th>
-                            <th>Company</th>
-                            <th>Contact</th>
-                            <th>Country</th>
-                            <th>Product</th>
-                            <th>Qty</th>
-                            <th>Source</th>
-                            <th>Status</th>
-                            <th>Actions</th>
-                        </tr>
-                    </thead>
-                    <tbody id="inquiriesBody">
-                        <tr><td colspan="9" class="loading-row">Loading...</td></tr>
-                    </tbody>
-                </table>
-            </section>
-        </div>
-
-        <!-- Detail Modal -->
-        <div id="detailModal" class="modal hidden">
-            <div class="modal-content">
-                <button class="modal-close" id="modalClose">✕</button>
-                <div id="modalBody"></div>
-            </div>
-        </div>
-    </main>
-
-    <script>
-        const API_BASE = '/api/admin';
-        let adminToken = localStorage.getItem('pinforge_admin_token') || '';
-        let allInquiries = [];
-
-        const loginScreen = document.getElementById('loginScreen');
-        const dashboard = document.getElementById('dashboard');
-        const adminTokenInput = document.getElementById('adminToken');
-        const loginBtn = document.getElementById('loginBtn');
-        const refreshBtn = document.getElementById('refreshBtn');
-        const searchInput = document.getElementById('searchInput');
-        const statusFilter = document.getElementById('statusFilter');
-        const productFilter = document.getElementById('productFilter');
-        const inquiriesBody = document.getElementById('inquiriesBody');
-        const lastUpdated = document.getElementById('adminLastUpdated');
-        const detailModal = document.getElementById('detailModal');
-        const modalBody = document.getElementById('modalBody');
-        const modalClose = document.getElementById('modalClose');
-
-        // ---- Auth ----
-        if (adminToken) {
-            adminTokenInput.value = adminToken;
-            showDashboard();
-            loadInquiries();
-        }
-
-        loginBtn.addEventListener('click', () => {
-            adminToken = adminTokenInput.value.trim();
-            if (!adminToken) {
-                alert('Please enter a token');
-                return;
-            }
-            localStorage.setItem('pinforge_admin_token', adminToken);
-            showDashboard();
-            loadInquiries();
-        });
-
-        adminTokenInput.addEventListener('keydown', (e) => {
-            if (e.key === 'Enter') loginBtn.click();
-        });
-
-        function showDashboard() {
-            loginScreen.classList.add('hidden');
-            dashboard.classList.remove('hidden');
-        }
-
-        // ---- Load ----
-        async function loadInquiries() {
-            try {
-                const res = await fetch(API_BASE + '/list', {
-                    headers: { 'X-Admin-Token': adminToken }
-                });
-                if (res.status === 401) {
-                    alert('Invalid token');
-                    localStorage.removeItem('pinforge_admin_token');
-                    location.reload();
-                    return;
-                }
-                if (!res.ok) throw new Error('HTTP ' + res.status);
-
-                const data = await res.json();
-                allInquiries = data.list || [];
-
-                // Stats
-                document.getElementById('statTotal').textContent = data.stats.total;
-                document.getElementById('stat24h').textContent = data.stats.last24h;
-                document.getElementById('statNew').textContent = (data.stats.byStatus?.new || 0);
-                document.getElementById('statWon').textContent = (data.stats.byStatus?.won || 0);
-
-                // Product filter options
-                const products = Object.keys(data.stats.byProduct || {});
-                productFilter.innerHTML = '<option value="">All Products</option>' +
-                    products.map(p => `<option value="${escapeHtml(p)}">${escapeHtml(p)} (${data.stats.byProduct[p]})</option>`).join('');
-
-                renderTable();
-                lastUpdated.textContent = 'Updated ' + new Date().toLocaleTimeString();
-            } catch (e) {
-                console.error(e);
-                inquiriesBody.innerHTML = `<tr><td colspan="9" class="error-row">❌ Error loading: ${e.message}<br><br>Make sure INQUIRIES KV namespace is bound and ADMIN_TOKEN is set.</td></tr>`;
-            }
-        }
-
-        function renderTable() {
-            const search = searchInput.value.toLowerCase();
-            const status = statusFilter.value;
-            const product = productFilter.value;
-
-            const filtered = allInquiries.filter(i => {
-                if (status && i.status !== status) return false;
-                if (product && i.product_type !== product) return false;
-                if (search) {
-                    const haystack = `${i.company} ${i.email} ${i.country} ${i.name || ''}`.toLowerCase();
-                    if (!haystack.includes(search)) return false;
-                }
-                return true;
-            });
-
-            if (filtered.length === 0) {
-                inquiriesBody.innerHTML = '<tr><td colspan="9" class="loading-row">No inquiries match.</td></tr>';
-                return;
-            }
-
-            inquiriesBody.innerHTML = filtered.map(i => {
-                const date = new Date(i.timestamp);
-                const dateStr = date.toLocaleDateString() + ' ' + date.toLocaleTimeString([], {hour:'2-digit', minute:'2-digit'});
-                return `
-                    <tr data-id="${i.id}">
-                        <td class="date-cell">${dateStr}</td>
-                        <td><strong>${escapeHtml(i.company)}</strong></td>
-                        <td>${escapeHtml(i.email)}</td>
-                        <td>${escapeHtml(i.country || 'N/A')}</td>
-                        <td><span class="product-tag">${escapeHtml(i.product_type || 'N/A')}</span></td>
-                        <td>${escapeHtml(i.quantity || 'N/A')}</td>
-                        <td class="text-muted">${escapeHtml(i.source || '')}</td>
-                        <td><span class="status-badge status-${i.status}">${i.status}</span></td>
-                        <td>
-                            <button class="btn-link view-btn" data-id="${i.id}">View</button>
-                        </td>
-                    </tr>
-                `;
-            }).join('');
-
-            inquiriesBody.querySelectorAll('.view-btn').forEach(btn => {
-                btn.addEventListener('click', () => showDetail(btn.dataset.id));
-            });
-        }
-
-        async function showDetail(id) {
-            try {
-                const res = await fetch(API_BASE + '/get?id=' + id, {
-                    headers: { 'X-Admin-Token': adminToken }
-                });
-                if (!res.ok) throw new Error('Failed');
-                const data = await res.json();
-                const i = data.inquiry;
-
-                modalBody.innerHTML = `
-                    <h2>📋 ${escapeHtml(i.company)}</h2>
-                    <p class="modal-meta">Submitted ${new Date(i.timestamp).toLocaleString()} · <span class="status-badge status-${i.status}">${i.status}</span></p>
-
-                    <div class="detail-grid">
-                        <div><strong>Contact:</strong> ${escapeHtml(i.name)}</div>
-                        <div><strong>Email:</strong> <a href="mailto:${escapeHtml(i.email)}">${escapeHtml(i.email)}</a></div>
-                        <div><strong>Phone:</strong> ${escapeHtml(i.phone || 'N/A')}</div>
-                        <div><strong>Country:</strong> ${escapeHtml(i.country)} ${i.country_ip ? '(' + i.country_ip + ')' : ''}</div>
-                        <div><strong>Product:</strong> ${escapeHtml(i.product_type)}</div>
-                        <div><strong>Quantity:</strong> ${escapeHtml(i.quantity)}</div>
-                        <div><strong>Budget:</strong> ${escapeHtml(i.budget || 'N/A')}</div>
-                        <div><strong>Deadline:</strong> ${escapeHtml(i.deadline || 'N/A')}</div>
-                        <div><strong>Size:</strong> ${escapeHtml(i.size || 'N/A')}</div>
-                        <div><strong>NDA:</strong> ${escapeHtml(i.nda)}</div>
-                        <div><strong>Sample:</strong> ${escapeHtml(i.sample)}</div>
-                        <div><strong>Source:</strong> ${escapeHtml(i.source)} ${i.utm_source ? '/ ' + i.utm_source : ''}</div>
-                    </div>
-
-                    <div class="detail-section">
-                        <h3>📝 Description</h3>
-                        <p>${escapeHtml(i.description)}</p>
-                    </div>
-
-                    <div class="detail-section">
-                        <h3>⚙️ Update Status</h3>
-                        <select id="statusUpdate" class="filter-input">
-                            <option value="new" ${i.status === 'new' ? 'selected' : ''}>🆕 New</option>
-                            <option value="contacted" ${i.status === 'contacted' ? 'selected' : ''}>📞 Contacted</option>
-                            <option value="quoted" ${i.status === 'quoted' ? 'selected' : ''}>💰 Quoted</option>
-                            <option value="won" ${i.status === 'won' ? 'selected' : ''}>✅ Won</option>
-                            <option value="lost" ${i.status === 'lost' ? 'selected' : ''}>❌ Lost</option>
-                        </select>
-                        <button id="updateStatusBtn" class="btn btn-primary">Save Status</button>
-                    </div>
-
-                    <div class="detail-section">
-                        <h3>🚀 Quick Actions</h3>
-                        <a href="https://wa.me/${(i.phone || '').replace(/\D/g, '')}?text=Hi%20${encodeURIComponent(i.name)}%2C%20regarding%20your%20inquiry%20about%20${encodeURIComponent(i.product_type)}..." target="_blank" rel="noopener" class="btn btn-outline">💬 WhatsApp</a>
-                        <a href="mailto:${escapeHtml(i.email)}?subject=Re%3A%20${encodeURIComponent(i.product_type)}%20inquiry&body=Hi%20${encodeURIComponent(i.name)}%2C%0A%0AThank%20you%20for%20your%20inquiry..." class="btn btn-outline">📧 Email</a>
-                    </div>
-
-                    <details class="raw-data">
-                        <summary>🔍 Raw data</summary>
-                        <pre>${escapeHtml(JSON.stringify(i, null, 2))}</pre>
-                    </details>
-                `;
-
-                detailModal.classList.remove('hidden');
-
-                document.getElementById('updateStatusBtn').addEventListener('click', async () => {
-                    const newStatus = document.getElementById('statusUpdate').value;
-                    const r = await fetch(API_BASE + '/update', {
-                        method: 'POST',
-                        headers: {
-                            'Content-Type': 'application/json',
-                            'X-Admin-Token': adminToken
-                        },
-                        body: JSON.stringify({ id: i.id, status: newStatus })
-                    });
-                    if (r.ok) {
-                        alert('✅ Status updated to ' + newStatus);
-                        detailModal.classList.add('hidden');
-                        loadInquiries();
-                    } else {
-                        alert('❌ Failed to update');
-                    }
-                });
-            } catch (e) {
-                alert('Error: ' + e.message);
-            }
-        }
-
-        modalClose.addEventListener('click', () => detailModal.classList.add('hidden'));
-        detailModal.addEventListener('click', (e) => {
-            if (e.target === detailModal) detailModal.classList.add('hidden');
-        });
-
-        refreshBtn.addEventListener('click', loadInquiries);
-        searchInput.addEventListener('input', renderTable);
-        statusFilter.addEventListener('change', renderTable);
-        productFilter.addEventListener('change', renderTable);
-
-        function escapeHtml(s) {
-            return String(s || '').replace(/[&<>"']/g, c => ({
-                '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;'
-            }[c]));
-        }
-
-        // Auto-refresh every 60s
-        setInterval(() => {
-            if (!dashboard.classList.contains('hidden')) loadInquiries();
-        }, 60000);
-    </script>
-</body>
-</html>
+6|
+7|8|    <link rel="canonical" href="https://guoguoping1008.github.io/baji001/admin.html">
+9|    <link rel="alternate" hreflang="en" href="https://guoguoping1008.github.io/baji001/admin.html">
+10|    <link rel="alternate" hreflang="x-default" href="https://guoguoping1008.github.io/baji001/admin.html">
+11|
+12|6|
+13|7|8|    <link rel="canonical" href="https://guoguoping1008.github.io/baji001/admin.html">
+14|9|    <link rel="alternate" hreflang="en" href="https://guoguoping1008.github.io/baji001/admin.html">
+15|10|    <link rel="alternate" hreflang="x-default" href="https://guoguoping1008.github.io/baji001/admin.html">
+16|11|
+17|12|6|
+18|13|7|8|    <link rel="canonical" href="https://guoguoping1008.github.io/baji001/admin.html">
+19|14|9|    <link rel="alternate" hreflang="en" href="https://guoguoping1008.github.io/baji001/admin.html">
+20|15|10|    <link rel="alternate" hreflang="x-default" href="https://guoguoping1008.github.io/baji001/admin.html">
+21|16|11|
+22|17|12|
+23|18|13|
+24|19|14|    <title>Inquiry Admin — PinForge</title>
+25|20|15|    <meta name="robots" content="noindex, nofollow">
+26|21|16|    <link rel="stylesheet" href="assets/css/style.css">
+27|22|17|    <link rel="stylesheet" href="assets/css/admin.css">
+28|23|18|    <link rel="icon" type="image/svg+xml" href="assets/images/favicon.svg">
+29|24|19|</head>
+30|25|20|<body class="admin-body">
+31|26|21|    <header class="admin-header">
+32|27|22|        <div class="container">
+33|28|23|            <h1>🔒 PinForge Inquiry Admin</h1>
+34|29|24|            <div class="admin-user">
+35|30|25|                <span id="adminLastUpdated" class="text-muted">Not loaded</span>
+36|31|26|                <button id="refreshBtn" class="btn btn-outline btn-sm">↻ Refresh</button>
+37|32|27|            </div>
+38|33|28|        </div>
+39|34|29|    </header>
+40|35|30|
+41|36|31|    <main class="container admin-main">
+42|37|32|        <!-- Login Screen -->
+43|38|33|        <div id="loginScreen" class="login-screen">
+44|39|34|            <div class="login-card">
+45|40|35|                <h2>🔐 Admin Login</h2>
+46|41|36|                <p>Enter your admin token to view inquiries.</p>
+47|42|37|                <input type="password" id="adminToken" placeholder="Admin token" class="login-input">
+48|43|38|                <button id="loginBtn" class="btn btn-primary btn-block">Login</button>
+49|44|39|                <p class="login-hint">
+50|45|40|                    💡 Set <code>ADMIN_TOKEN</code> in Cloudflare Pages dashboard env vars.
+51|46|41|                </p>
+52|47|42|            </div>
+53|48|43|        </div>
+54|49|44|
+55|50|45|        <!-- Dashboard -->
+56|51|46|        <div id="dashboard" class="dashboard hidden">
+57|52|47|            <!-- Stats -->
+58|53|48|            <section class="stats-grid">
+59|54|49|                <div class="stat-card">
+60|55|50|                    <div class="stat-value" id="statTotal">0</div>
+61|56|51|                    <div class="stat-label">Total Inquiries</div>
+62|57|52|                </div>
+63|58|53|                <div class="stat-card">
+64|59|54|                    <div class="stat-value" id="stat24h">0</div>
+65|60|55|                    <div class="stat-label">Last 24 hours</div>
+66|61|56|                </div>
+67|62|57|                <div class="stat-card">
+68|63|58|                    <div class="stat-value" id="statNew">0</div>
+69|64|59|                    <div class="stat-label">New (unread)</div>
+70|65|60|                </div>
+71|66|61|                <div class="stat-card">
+72|67|62|                    <div class="stat-value" id="statWon">0</div>
+73|68|63|                    <div class="stat-label">Won deals</div>
+74|69|64|                </div>
+75|70|65|            </section>
+76|71|66|
+77|72|67|            <!-- Filters -->
+78|73|68|            <section class="filters">
+79|74|69|                <div class="filter-row">
+80|75|70|                    <input type="search" id="searchInput" placeholder="🔍 Search company, email, country..." class="filter-input">
+81|76|71|                    <select id="statusFilter" class="filter-input">
+82|77|72|                        <option value="">All Statuses</option>
+83|78|73|                        <option value="new">New</option>
+84|79|74|                        <option value="contacted">Contacted</option>
+85|80|75|                        <option value="quoted">Quoted</option>
+86|81|76|                        <option value="won">Won</option>
+87|82|77|                        <option value="lost">Lost</option>
+88|83|78|                    </select>
+89|84|79|                    <select id="productFilter" class="filter-input">
+90|85|80|                        <option value="">All Products</option>
+91|86|81|                    </select>
+92|87|82|                </div>
+93|88|83|            </section>
+94|89|84|
+95|90|85|            <!-- Inquiries Table -->
+96|91|86|            <section class="inquiries-table-wrapper">
+97|92|87|                <table class="inquiries-table">
+98|93|88|                    <thead>
+99|94|89|                        <tr>
+100|95|90|                            <th>Date</th>
+101|96|91|                            <th>Company</th>
+102|97|92|                            <th>Contact</th>
+103|98|93|                            <th>Country</th>
+104|99|94|                            <th>Product</th>
+105|100|95|                            <th>Qty</th>
+106|101|96|                            <th>Source</th>
+107|102|97|                            <th>Status</th>
+108|103|98|                            <th>Actions</th>
+109|104|99|                        </tr>
+110|105|100|                    </thead>
+111|106|101|                    <tbody id="inquiriesBody">
+112|107|102|                        <tr><td colspan="9" class="loading-row">Loading...</td></tr>
+113|108|103|                    </tbody>
+114|109|104|                </table>
+115|110|105|            </section>
+116|111|106|        </div>
+117|112|107|
+118|113|108|        <!-- Detail Modal -->
+119|114|109|        <div id="detailModal" class="modal hidden">
+120|115|110|            <div class="modal-content">
+121|116|111|                <button class="modal-close" id="modalClose">✕</button>
+122|117|112|                <div id="modalBody"></div>
+123|118|113|            </div>
+124|119|114|        </div>
+125|120|115|    </main>
+126|121|116|
+127|122|117|    <script>
+128|123|118|        const API_BASE = '/api/admin';
+129|124|119|        let adminToken = localStorage.getItem('pinforge_admin_token') || '';
+130|125|120|        let allInquiries = [];
+131|126|121|
+132|127|122|        const loginScreen = document.getElementById('loginScreen');
+133|128|123|        const dashboard = document.getElementById('dashboard');
+134|129|124|        const adminTokenInput = document.getElementById('adminToken');
+135|130|125|        const loginBtn = document.getElementById('loginBtn');
+136|131|126|        const refreshBtn = document.getElementById('refreshBtn');
+137|132|127|        const searchInput = document.getElementById('searchInput');
+138|133|128|        const statusFilter = document.getElementById('statusFilter');
+139|134|129|        const productFilter = document.getElementById('productFilter');
+140|135|130|        const inquiriesBody = document.getElementById('inquiriesBody');
+141|136|131|        const lastUpdated = document.getElementById('adminLastUpdated');
+142|137|132|        const detailModal = document.getElementById('detailModal');
+143|138|133|        const modalBody = document.getElementById('modalBody');
+144|139|134|        const modalClose = document.getElementById('modalClose');
+145|140|135|
+146|141|136|        // ---- Auth ----
+147|142|137|        if (adminToken) {
+148|143|138|            adminTokenInput.value = adminToken;
+149|144|139|            showDashboard();
+150|145|140|            loadInquiries();
+151|146|141|        }
+152|147|142|
+153|148|143|        loginBtn.addEventListener('click', () => {
+154|149|144|            adminToken = adminTokenInput.value.trim();
+155|150|145|            if (!adminToken) {
+156|151|146|                alert('Please enter a token');
+157|152|147|                return;
+158|153|148|            }
+159|154|149|            localStorage.setItem('pinforge_admin_token', adminToken);
+160|155|150|            showDashboard();
+161|156|151|            loadInquiries();
+162|157|152|        });
+163|158|153|
+164|159|154|        adminTokenInput.addEventListener('keydown', (e) => {
+165|160|155|            if (e.key === 'Enter') loginBtn.click();
+166|161|156|        });
+167|162|157|
+168|163|158|        function showDashboard() {
+169|164|159|            loginScreen.classList.add('hidden');
+170|165|160|            dashboard.classList.remove('hidden');
+171|166|161|        }
+172|167|162|
+173|168|163|        // ---- Load ----
+174|169|164|        async function loadInquiries() {
+175|170|165|            try {
+176|171|166|                const res = await fetch(API_BASE + '/list', {
+177|172|167|                    headers: { 'X-Admin-Token': adminToken }
+178|173|168|                });
+179|174|169|                if (res.status === 401) {
+180|175|170|                    alert('Invalid token');
+181|176|171|                    localStorage.removeItem('pinforge_admin_token');
+182|177|172|                    location.reload();
+183|178|173|                    return;
+184|179|174|                }
+185|180|175|                if (!res.ok) throw new Error('HTTP ' + res.status);
+186|181|176|
+187|182|177|                const data = await res.json();
+188|183|178|                allInquiries = data.list || [];
+189|184|179|
+190|185|180|                // Stats
+191|186|181|                document.getElementById('statTotal').textContent = data.stats.total;
+192|187|182|                document.getElementById('stat24h').textContent = data.stats.last24h;
+193|188|183|                document.getElementById('statNew').textContent = (data.stats.byStatus?.new || 0);
+194|189|184|                document.getElementById('statWon').textContent = (data.stats.byStatus?.won || 0);
+195|190|185|
+196|191|186|                // Product filter options
+197|192|187|                const products = Object.keys(data.stats.byProduct || {});
+198|193|188|                productFilter.innerHTML = '<option value="">All Products</option>' +
+199|194|189|                    products.map(p => `<option value="${escapeHtml(p)}">${escapeHtml(p)} (${data.stats.byProduct[p]})</option>`).join('');
+200|195|190|
+201|196|191|                renderTable();
+202|197|192|                lastUpdated.textContent = 'Updated ' + new Date().toLocaleTimeString();
+203|198|193|            } catch (e) {
+204|199|194|                console.error(e);
+205|200|195|                inquiriesBody.innerHTML = `<tr><td colspan="9" class="error-row">❌ Error loading: ${e.message}<br><br>Make sure INQUIRIES KV namespace is bound and ADMIN_TOKEN is set.</td></tr>`;
+206|201|196|            }
+207|202|197|        }
+208|203|198|
+209|204|199|        function renderTable() {
+210|205|200|            const search = searchInput.value.toLowerCase();
+211|206|201|            const status = statusFilter.value;
+212|207|202|            const product = productFilter.value;
+213|208|203|
+214|209|204|            const filtered = allInquiries.filter(i => {
+215|210|205|                if (status && i.status !== status) return false;
+216|211|206|                if (product && i.product_type !== product) return false;
+217|212|207|                if (search) {
+218|213|208|                    const haystack = `${i.company} ${i.email} ${i.country} ${i.name || ''}`.toLowerCase();
+219|214|209|                    if (!haystack.includes(search)) return false;
+220|215|210|                }
+221|216|211|                return true;
+222|217|212|            });
+223|218|213|
+224|219|214|            if (filtered.length === 0) {
+225|220|215|                inquiriesBody.innerHTML = '<tr><td colspan="9" class="loading-row">No inquiries match.</td></tr>';
+226|221|216|                return;
+227|222|217|            }
+228|223|218|
+229|224|219|            inquiriesBody.innerHTML = filtered.map(i => {
+230|225|220|                const date = new Date(i.timestamp);
+231|226|221|                const dateStr = date.toLocaleDateString() + ' ' + date.toLocaleTimeString([], {hour:'2-digit', minute:'2-digit'});
+232|227|222|                return `
+233|228|223|                    <tr data-id="${i.id}">
+234|229|224|                        <td class="date-cell">${dateStr}</td>
+235|230|225|                        <td><strong>${escapeHtml(i.company)}</strong></td>
+236|231|226|                        <td>${escapeHtml(i.email)}</td>
+237|232|227|                        <td>${escapeHtml(i.country || 'N/A')}</td>
+238|233|228|                        <td><span class="product-tag">${escapeHtml(i.product_type || 'N/A')}</span></td>
+239|234|229|                        <td>${escapeHtml(i.quantity || 'N/A')}</td>
+240|235|230|                        <td class="text-muted">${escapeHtml(i.source || '')}</td>
+241|236|231|                        <td><span class="status-badge status-${i.status}">${i.status}</span></td>
+242|237|232|                        <td>
+243|238|233|                            <button class="btn-link view-btn" data-id="${i.id}">View</button>
+244|239|234|                        </td>
+245|240|235|                    </tr>
+246|241|236|                `;
+247|242|237|            }).join('');
+248|243|238|
+249|244|239|            inquiriesBody.querySelectorAll('.view-btn').forEach(btn => {
+250|245|240|                btn.addEventListener('click', () => showDetail(btn.dataset.id));
+251|246|241|            });
+252|247|242|        }
+253|248|243|
+254|249|244|        async function showDetail(id) {
+255|250|245|            try {
+256|251|246|                const res = await fetch(API_BASE + '/get?id=' + id, {
+257|252|247|                    headers: { 'X-Admin-Token': adminToken }
+258|253|248|                });
+259|254|249|                if (!res.ok) throw new Error('Failed');
+260|255|250|                const data = await res.json();
+261|256|251|                const i = data.inquiry;
+262|257|252|
+263|258|253|                modalBody.innerHTML = `
+264|259|254|                    <h2>📋 ${escapeHtml(i.company)}</h2>
+265|260|255|                    <p class="modal-meta">Submitted ${new Date(i.timestamp).toLocaleString()} · <span class="status-badge status-${i.status}">${i.status}</span></p>
+266|261|256|
+267|262|257|                    <div class="detail-grid">
+268|263|258|                        <div><strong>Contact:</strong> ${escapeHtml(i.name)}</div>
+269|264|259|                        <div><strong>Email:</strong> <a href="mailto:${escapeHtml(i.email)}">${escapeHtml(i.email)}</a></div>
+270|265|260|                        <div><strong>Phone:</strong> ${escapeHtml(i.phone || 'N/A')}</div>
+271|266|261|                        <div><strong>Country:</strong> ${escapeHtml(i.country)} ${i.country_ip ? '(' + i.country_ip + ')' : ''}</div>
+272|267|262|                        <div><strong>Product:</strong> ${escapeHtml(i.product_type)}</div>
+273|268|263|                        <div><strong>Quantity:</strong> ${escapeHtml(i.quantity)}</div>
+274|269|264|                        <div><strong>Budget:</strong> ${escapeHtml(i.budget || 'N/A')}</div>
+275|270|265|                        <div><strong>Deadline:</strong> ${escapeHtml(i.deadline || 'N/A')}</div>
+276|271|266|                        <div><strong>Size:</strong> ${escapeHtml(i.size || 'N/A')}</div>
+277|272|267|                        <div><strong>NDA:</strong> ${escapeHtml(i.nda)}</div>
+278|273|268|                        <div><strong>Sample:</strong> ${escapeHtml(i.sample)}</div>
+279|274|269|                        <div><strong>Source:</strong> ${escapeHtml(i.source)} ${i.utm_source ? '/ ' + i.utm_source : ''}</div>
+280|275|270|                    </div>
+281|276|271|
+282|277|272|                    <div class="detail-section">
+283|278|273|                        <h3>📝 Description</h3>
+284|279|274|                        <p>${escapeHtml(i.description)}</p>
+285|280|275|                    </div>
+286|281|276|
+287|282|277|                    <div class="detail-section">
+288|283|278|                        <h3>⚙️ Update Status</h3>
+289|284|279|                        <select id="statusUpdate" class="filter-input">
+290|285|280|                            <option value="new" ${i.status === 'new' ? 'selected' : ''}>🆕 New</option>
+291|286|281|                            <option value="contacted" ${i.status === 'contacted' ? 'selected' : ''}>📞 Contacted</option>
+292|287|282|                            <option value="quoted" ${i.status === 'quoted' ? 'selected' : ''}>💰 Quoted</option>
+293|288|283|                            <option value="won" ${i.status === 'won' ? 'selected' : ''}>✅ Won</option>
+294|289|284|                            <option value="lost" ${i.status === 'lost' ? 'selected' : ''}>❌ Lost</option>
+295|290|285|                        </select>
+296|291|286|                        <button id="updateStatusBtn" class="btn btn-primary">Save Status</button>
+297|292|287|                    </div>
+298|293|288|
+299|294|289|                    <div class="detail-section">
+300|295|290|                        <h3>🚀 Quick Actions</h3>
+301|296|291|                        <a href="https://wa.me/${(i.phone || '').replace(/\D/g, '')}?text=Hi%20${encodeURIComponent(i.name)}%2C%20regarding%20your%20inquiry%20about%20${encodeURIComponent(i.product_type)}..." target="_blank" rel="noopener" class="btn btn-outline">💬 WhatsApp</a>
+302|297|292|                        <a href="mailto:${escapeHtml(i.email)}?subject=Re%3A%20${encodeURIComponent(i.product_type)}%20inquiry&body=Hi%20${encodeURIComponent(i.name)}%2C%0A%0AThank%20you%20for%20your%20inquiry..." class="btn btn-outline">📧 Email</a>
+303|298|293|                    </div>
+304|299|294|
+305|300|295|                    <details class="raw-data">
+306|301|296|                        <summary>🔍 Raw data</summary>
+307|302|297|                        <pre>${escapeHtml(JSON.stringify(i, null, 2))}</pre>
+308|303|298|                    </details>
+309|304|299|                `;
+310|305|300|
+311|306|301|                detailModal.classList.remove('hidden');
+312|307|302|
+313|308|303|                document.getElementById('updateStatusBtn').addEventListener('click', async () => {
+314|309|304|                    const newStatus = document.getElementById('statusUpdate').value;
+315|310|305|                    const r = await fetch(API_BASE + '/update', {
+316|311|306|                        method: 'POST',
+317|312|307|                        headers: {
+318|313|308|                            'Content-Type': 'application/json',
+319|314|309|                            'X-Admin-Token': adminToken
+320|315|310|                        },
+321|316|311|                        body: JSON.stringify({ id: i.id, status: newStatus })
+322|317|312|                    });
+323|318|313|                    if (r.ok) {
+324|319|314|                        alert('✅ Status updated to ' + newStatus);
+325|320|315|                        detailModal.classList.add('hidden');
+326|321|316|                        loadInquiries();
+327|322|317|                    } else {
+328|323|318|                        alert('❌ Failed to update');
+329|324|319|                    }
+330|325|320|                });
+331|326|321|            } catch (e) {
+332|327|322|                alert('Error: ' + e.message);
+333|328|323|            }
+334|329|324|        }
+335|330|325|
+336|331|326|        modalClose.addEventListener('click', () => detailModal.classList.add('hidden'));
+337|332|327|        detailModal.addEventListener('click', (e) => {
+338|333|328|            if (e.target === detailModal) detailModal.classList.add('hidden');
+339|334|329|        });
+340|335|330|
+341|336|331|        refreshBtn.addEventListener('click', loadInquiries);
+342|337|332|        searchInput.addEventListener('input', renderTable);
+343|338|333|        statusFilter.addEventListener('change', renderTable);
+344|339|334|        productFilter.addEventListener('change', renderTable);
+345|340|335|
+346|341|336|        function escapeHtml(s) {
+347|342|337|            return String(s || '').replace(/[&<>"']/g, c => ({
+348|343|338|                '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;'
+349|344|339|            }[c]));
+350|345|340|        }
+351|346|341|
+352|347|342|        // Auto-refresh every 60s
+353|348|343|        setInterval(() => {
+354|349|344|            if (!dashboard.classList.contains('hidden')) loadInquiries();
+355|350|345|        }, 60000);
+356|351|346|    </script>
+357|352|347|</body>
+358|353|348|</html>501|

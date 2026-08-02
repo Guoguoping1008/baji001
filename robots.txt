@@ -1,9 +1,7 @@
 User-agent: *
 Allow: /
 Disallow: /api/
+Disallow: /functions/
 
 # Sitemap
-Sitemap: https://pinforge.com/sitemap.xml
-
-# Crawl delay (optional, conservative)
-Crawl-delay: 1
+Sitemap: https://guoguoping1008.github.io/baji001/sitemap.xml
